@@ -21,4 +21,14 @@ class PostFacade extends \Flame\Doctrine\Model\Facade
 		return $this->repository->findBy(array(), array('id' => 'DESC'));
 	}
 
+	/**
+	 * @param Post $post
+	 * @return mixed
+	 */
+	public function increaseViews(Post $post)
+	{
+		$post->setViews($post->getViews() + 1);
+		return $this->save($post);
+	}
+
 }

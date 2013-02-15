@@ -41,7 +41,8 @@ class PostPresenter extends FrontPresenter
 	 */
 	public function actionDetail($id = null)
 	{
-		$this->post = $this->postFacade->getOne($id);
+		if($this->post = $this->postFacade->getOne($id))
+			$this->postFacade->increaseViews($this->post);
 	}
 
 }
