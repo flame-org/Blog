@@ -47,3 +47,7 @@ body {
 .clear {
     clear: both;
 }
+
+input, textarea {
+    width: auto;
+}

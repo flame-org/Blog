@@ -83,9 +83,9 @@ class PostForm extends \Flame\Blog\Application\UI\Form
 
 	private function configure()
 	{
-		$this->addText('title')
+		$this->addText('title', 'Title', 60, 250)
 			->setRequired();
-		$this->addTextArea('content')
+		$this->addTextArea('content', 'Content', 62, 20)
 			->setRequired();
 		$this->addCheckbox('public', 'Make the post public?');
 	}
