@@ -11,13 +11,13 @@ jQuery.ajaxSetup({
 });
 
 // odesílání odkazů
-$('a.ajax').live('click', function (event) {
+$('a.ajax').on('click', function (event) {
     event.preventDefault();
     $.get(this.href);
 });
 
 // odesílání formulářů
-$('form.ajax').live('submit', function (event) {
+$('form.ajax').on('submit', function (event) {
     event.preventDefault();
     $.post(this.action, $(this).serialize());
 });

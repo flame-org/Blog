@@ -7,7 +7,9 @@
 
 	<title>{#title|striptags|trim}Nette Application Skeleton{/#}</title>
 
-	<link rel="stylesheet" media="all" href="{$basePath}/css/core.css">
+    <link rel="stylesheet" media="all" href="{$basePath}/css/bootstrap-responsive.css">
+    <link rel="stylesheet" media="all" href="{$basePath}/css/bootstrap.css">
+    <link rel="stylesheet" media="all" href="{$basePath}/css/core.css">
 
 	{#head}{/#}
 </head>
@@ -19,6 +21,7 @@
 	{include #content}
 
 	{#scripts}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
 	<script src="{$basePath}/js/ajax.js"></script>

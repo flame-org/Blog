@@ -10,7 +10,7 @@
 
 namespace Flame\Blog\FrontModule\Forms\Sign;
 
-class SignInForm extends \Flame\Application\UI\Form
+class SignInForm extends \Flame\Blog\Application\UI\Form
 {
 
 	/**
