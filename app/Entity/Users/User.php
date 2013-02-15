@@ -10,9 +10,6 @@
 
 namespace DoctrineSandbox\Entity\Users;
 
-/**
- * @Entity(repositoryClass="\Flame\Model\Repository")
- */
 class User extends \Flame\Doctrine\Entity
 {
 

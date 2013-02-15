@@ -10,7 +10,7 @@
 
 namespace DoctrineSandbox\Entity\Users;
 
-class UserFacade extends \Flame\Model\Facade
+class UserFacade extends \Flame\Database\Repository\Model
 {
 
 	/**
@@ -24,6 +24,6 @@ class UserFacade extends \Flame\Model\Facade
 	 */
 	public function getOneByEmail($email)
 	{
-		return $this->repository->findOneBy(array('email' => $email));
+		return $this->findOneBy(array('email' => $email));
 	}
 }
