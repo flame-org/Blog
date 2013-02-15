@@ -20,6 +20,17 @@ class PostControl extends \Flame\Application\UI\Control
 	/** @var \Flame\Blog\Entity\Posts\PostFacade */
 	private $postFacade;
 
+	/** @var \Flame\Blog\Security\User */
+	private $user;
+
+	/**
+	 * @param \Flame\Blog\Security\User $user
+	 */
+	public function injectUser(\Flame\Blog\Security\User $user)
+	{
+		$this->user = $user;
+	}
+
 	/**
 	 * @param \Flame\Blog\Entity\Posts\PostFacade $postFacade
 	 */
@@ -65,10 +76,14 @@ class PostControl extends \Flame\Application\UI\Control
 	 */
 	public function handleDelete($id = null)
 	{
-		if($post = $this->postFacade->getOne($id)){
-			$this->postFacade->delete($post);
+		if($this->user->isLoggedIn()){
+			if($post = $this->postFacade->getOne($id)){
+				$this->postFacade->delete($post);
+			}else{
+				$this->presenter->flashMessage('Post does not exist', 'error');
+			}
 		}else{
-			$this->presenter->flashMessage('Post does not exist', 'error');
+			$this->presenter->flashMessage('Access denied');
 		}
 
 		if($this->presenter->isAjax()){
