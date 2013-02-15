@@ -44,9 +44,9 @@ class PostControl extends \Flame\Application\UI\Control
 		$this->post = $post;
 	}
 
-	public function renderAdd()
+	public function renderUpdate()
 	{
-		$this->template->setFile(__DIR__ . '/PostControlAdd.latte')->render();
+		$this->template->setFile(__DIR__ . '/PostControlUpdate.latte')->render();
 	}
 
 	public function beforeRender()
