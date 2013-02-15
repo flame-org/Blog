@@ -8,6 +8,8 @@
 
 namespace Flame\Blog\FrontModule;
 
+use Flame\Utils\Strings;
+
 class PostPresenter extends FrontPresenter
 {
 
@@ -38,11 +40,20 @@ class PostPresenter extends FrontPresenter
 
 	/**
 	 * @param null $id
+	 * @param null $slug
 	 */
-	public function actionDetail($id = null)
+	public function actionDetail($id = null, $slug = null)
 	{
-		if($this->post = $this->postFacade->getOne($id))
+		if($this->post = $this->postFacade->getOne($id)){
+			$this->protectPostDuplicity($slug, $this->post);
 			$this->postFacade->increaseViews($this->post);
+		}
 	}
 
+	private function protectPostDuplicity($slug, \Flame\Blog\Entity\Posts\Post $post)
+	{
+		if($slug != Strings::webalize($post->getTitle())){
+			$this->redirect('this', array('id' => $post->getId(), 'slug' => Strings::webalize($post->getTitle())));
+		}
+	}
 }
