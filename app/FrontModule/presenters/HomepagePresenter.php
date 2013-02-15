@@ -5,7 +5,7 @@ namespace Flame\Blog\FrontModule;
 /**
  * Homepage presenter.
  */
-class HomepagePresenter extends BasePresenter
+class HomepagePresenter extends FrontPresenter
 {
 
 	public function renderDefault()

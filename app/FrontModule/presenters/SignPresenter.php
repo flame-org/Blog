@@ -5,7 +5,7 @@ namespace Flame\Blog\FrontModule;
 /**
  * Sign in/out presenters.
  */
-class SignPresenter extends BasePresenter
+class SignPresenter extends FrontPresenter
 {
 
 	/**
