@@ -26,11 +26,12 @@ class RouterFactory
 			'action' => 'default',
 			'id' => null
 		));
-		$router[] = new Route('<presenter>/<action>[/<id>]', array(
+		$router[] = new Route('<presenter>/<action>[/<id>][/<slug>]', array(
 			'module' => 'Front',
 			'presenter' => 'Post',
 			'action' => 'default',
-			'id' => null
+			'id' => null,
+			'slug' => null
 		));
 		return $router;
 	}
