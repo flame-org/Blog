@@ -13,7 +13,13 @@
         <tbody>
         <tr n:foreach="$posts as $post">
             <td>{$post->date|date:'%d.%m.%y'}</td>
-            <td>{$post->title}</td>
+            <td>
+				{if $post->public}
+					<a href="{plink :Front:Post:detail $post->id}">{$post->title}</a>
+				{else}
+					{$post->title}
+				{/if}
+			</td>
             <td>{$post->views}</td>
             <td>
                 <div class="btn-group">
