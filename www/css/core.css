@@ -15,6 +15,12 @@ body {
     font-size: 25px;
 }
 
+.masthead h1 a {
+    color: #808080;
+}
+.masthead h1 a:hover {
+    text-decoration: none;
+}
 .jumbotron {
     margin: 60px 0;
 }
