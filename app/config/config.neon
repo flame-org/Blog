@@ -25,6 +25,10 @@ php:
 
 
 nette:
+  latte:
+    macros:
+      - \Flame\Blog\Latte\Macros\MarkdownMacros
+
   template:
     helperLoaders: [\Flame\Blog\Templating\Helpers]
 

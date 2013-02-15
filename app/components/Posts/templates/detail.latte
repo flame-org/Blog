@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <h2>{$post->title}</h2>
-    <p class="lead">{!$post->content|md}</p>
+    <p class="lead">{md $post->content}</p>
 
 	<strong>{$post->date|date:'%x %X'}</strong>
 </div>
