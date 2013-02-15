@@ -49,6 +49,8 @@ services:
 
   - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 
+  - \Flame\Blog\Model\Posts\PostManager
+
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
   MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
   TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
@@ -78,3 +80,13 @@ factories:
     create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
     implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory
     parameters: [templateFile = null]
+
+  postControl:
+    create: \Flame\Blog\Components\Posts\PostControl(%post%)
+    implement: \Flame\Blog\Components\Posts\IPostControlFactory
+    parameters: [\Flame\Blog\Entity\Posts\Post post = null]
+
+  postForm:
+    create: \Flame\Blog\Components\Posts\Forms\PostForm(%defaults%)
+    implement: \Flame\Blog\Components\Posts\Forms\IPostFormFactory
+    parameters: [array defaults = []]

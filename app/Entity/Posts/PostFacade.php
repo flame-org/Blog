@@ -13,4 +13,12 @@ class PostFacade extends \Flame\Doctrine\Model\Facade
 
 	protected $repositoryName = '\Flame\Blog\Entity\Posts\Post';
 
+	/**
+	 * @return array
+	 */
+	public function getLast()
+	{
+		return $this->repository->findBy(array(), array('id' => 'DESC'));
+	}
+
 }
