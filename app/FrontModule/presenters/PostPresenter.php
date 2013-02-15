@@ -1,11 +1,14 @@
 <?php
+/**
+ * PostPresenter.php
+ *
+ * @author  Jiří Šifalda <sifalda.jiri@gmail.com>
+ * @date    15.02.13
+ */
 
 namespace Flame\Blog\FrontModule;
 
-/**
- * Homepage presenter.
- */
-class HomepagePresenter extends FrontPresenter
+class PostPresenter extends FrontPresenter
 {
 
 	/**
@@ -25,17 +28,20 @@ class HomepagePresenter extends FrontPresenter
 	 */
 	protected $postFacade;
 
-	public function actionPost($id = null)
-	{
-		$this->post = $this->postFacade->getOne($id);
-	}
-
 	/**
 	 * @return \Flame\Blog\Components\Posts\PostControl
 	 */
 	protected function createComponentPost()
 	{
 		return $this->postControlFactory->create($this->post);
+	}
+
+	/**
+	 * @param null $id
+	 */
+	public function actionDetail($id = null)
+	{
+		$this->post = $this->postFacade->getOne($id);
 	}
 
 }

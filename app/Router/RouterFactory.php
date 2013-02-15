@@ -28,7 +28,7 @@ class RouterFactory
 		));
 		$router[] = new Route('<presenter>/<action>[/<id>]', array(
 			'module' => 'Front',
-			'presenter' => 'Homepage',
+			'presenter' => 'Post',
 			'action' => 'default',
 			'id' => null
 		));
