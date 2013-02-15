@@ -8,7 +8,7 @@
  * @date    01.12.12
  */
 
-namespace DoctrineSandbox\Forms\Sign;
+namespace DoctrineSandbox\FrontModule\Forms\Sign;
 
 interface ISignInFormFactory
 {

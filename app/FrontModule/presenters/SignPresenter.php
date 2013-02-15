@@ -1,5 +1,7 @@
 <?php
 
+namespace DoctrineSandbox\FrontModule;
+
 /**
  * Sign in/out presenters.
  */
@@ -7,17 +9,10 @@ class SignPresenter extends BasePresenter
 {
 
 	/**
-	 * @var \DoctrineSandbox\Forms\Sign\ISignInFormFactory $signInFormFactory
+	 * @autowire
+	 * @var \DoctrineSandbox\FrontModule\Forms\Sign\ISignInFormFactory
 	 */
-	private $signInFormFactory;
-
-	/**
-	 * @param \DoctrineSandbox\Forms\Sign\ISignInFormFactory $signInFormFactory
-	 */
-	public function injectSignInFormFactory(\DoctrineSandbox\Forms\Sign\ISignInFormFactory $signInFormFactory)
-	{
-		$this->signInFormFactory = $signInFormFactory;
-	}
+	protected $signInFormFactory;
 
 	public function startup()
 	{
@@ -30,7 +25,7 @@ class SignPresenter extends BasePresenter
 	}
 
 	/**
-	 * @return \DoctrineSandbox\Forms\Sign\SignInForm|\Nette\Application\UI\Form
+	 * @return Forms\Sign\SignInForm
 	 */
 	protected function createComponentSignInForm()
 	{

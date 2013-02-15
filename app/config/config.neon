@@ -23,6 +23,10 @@ php:
 nette:
   container:
     debugger: false
+
+  application:
+      mapping:
+        *: DoctrineSandbox\*Module\*Presenter
     
   session:
     expiration: 14 days
@@ -36,13 +40,13 @@ services:
 
   - \DoctrineSandbox\Entity\Users\UserFacade
 
-  - \DoctrineSandbox\Forms\Sign\SignInFormProcess
+  - \DoctrineSandbox\FrontModule\Forms\Sign\SignInFormProcess
 
   - \Flame\Database\Connection(%database%)
 
 factories:
   signInForm:
-    implement: \DoctrineSandbox\Forms\Sign\ISignInFormFactory
+    implement: \DoctrineSandbox\FrontModule\Forms\Sign\ISignInFormFactory
 
   flashMessageControl:
     create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)

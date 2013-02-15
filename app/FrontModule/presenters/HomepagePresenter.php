@@ -1,5 +1,7 @@
 <?php
 
+namespace DoctrineSandbox\FrontModule;
+
 /**
  * Homepage presenter.
  */

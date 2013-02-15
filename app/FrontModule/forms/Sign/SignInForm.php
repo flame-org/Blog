@@ -8,7 +8,7 @@
  * @date    01.09.12
  */
 
-namespace DoctrineSandbox\Forms\Sign;
+namespace DoctrineSandbox\FrontModule\Forms\Sign;
 
 class SignInForm extends \Flame\Application\UI\Form
 {

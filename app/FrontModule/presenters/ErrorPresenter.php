@@ -1,7 +1,8 @@
 <?php
 
-use Nette\Diagnostics\Debugger;
+namespace DoctrineSandbox\FrontModule;
 
+use Nette\Diagnostics\Debugger;
 
 
 /**
