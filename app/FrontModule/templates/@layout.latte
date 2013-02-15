@@ -36,7 +36,8 @@
 		{include #content}
 
 		<div class="footer">
-			<p>&copy; Company 2013 | <a n:href="Sign:in"> Sign in</a></p>
+			<p class="left">&copy; Company 2013</p>
+			<p class="right">{if $user->isLoggedIn()}<a n:href=":Back:Wall:">Admin</a>{else}<a n:href="Sign:in"> Sign in</a>{/if}</p>
 		</div>
 	</div>
 

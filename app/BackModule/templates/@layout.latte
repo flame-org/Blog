@@ -20,6 +20,16 @@
 
     <div class="container-narrow">
 
+		<div class="left">
+			<a href="/">Visit homepage</a>
+		</div>
+
+		<div class="right">
+            <p>Logged as <strong>{$user->getIdentity()->email}</strong> | <a n:href="logout!">Logout</a></p>
+		</div>
+
+		<br class="clear" />
+
         <div class="masthead">
             <div class="navbar">
                 <div class="navbar-inner">
@@ -40,7 +50,6 @@
 	{include #content}
 
         <div class="footer">
-			<p>Logged as <strong>{$user->getIdentity()->email}</strong> | <a n:href="logout!">Logout</a></p>
             <p>&copy; Company 2013</p>
         </div>
     </div>
