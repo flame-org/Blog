@@ -21,6 +21,7 @@ body {
 
 .jumbotron {
     margin: 60px 0;
+    word-wrap: break-word;
 }
 .jumbotron h2 {
     font-size: 62px;
@@ -29,23 +30,6 @@ body {
 
 .jumbotron h2 a {
     color: #333;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-.right {
-    float: right;
-}
-
-.left {
-    float: left;
-}
-
-.clear {
-    clear: both;
 }
 
 input, textarea {
