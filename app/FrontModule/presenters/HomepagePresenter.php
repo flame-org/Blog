@@ -8,9 +8,18 @@ namespace Flame\Blog\FrontModule;
 class HomepagePresenter extends FrontPresenter
 {
 
-	public function renderDefault()
+	/**
+	 * @autowire
+	 * @var \Flame\Blog\Components\Posts\IPostControlFactory
+	 */
+	protected $postControlFactory;
+
+	/**
+	 * @return \Flame\Blog\Components\Posts\PostControl
+	 */
+	protected function createComponentPost()
 	{
-		$this->template->anyVariable = 'any value';
+		return $this->postControlFactory->create();
 	}
 
 }

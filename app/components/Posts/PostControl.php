@@ -44,14 +44,20 @@ class PostControl extends \Flame\Application\UI\Control
 		$this->post = $post;
 	}
 
+	public function beforeRender()
+	{
+		$this->template->posts = $this->postFacade->getLast();
+	}
+
 	public function renderUpdate()
 	{
 		$this->template->setFile(__DIR__ . '/PostControlUpdate.latte')->render();
 	}
 
-	public function beforeRender()
+	public function renderAdmin()
 	{
 		$this->template->posts = $this->postFacade->getLast();
+		$this->template->setFile(__DIR__ . '/PostControlAdmin.latte')->render();
 	}
 
 	/**
