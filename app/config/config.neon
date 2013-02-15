@@ -35,8 +35,9 @@ nette:
 services:
   routerFactory: RouterFactory
   router: @routerFactory::createRouter
+  user: \DoctrineSandbox\Security\User
 
-  - DoctrineSandbox\Security\Authenticator
+  - \DoctrineSandbox\Security\Authenticator
 
   - \DoctrineSandbox\Entity\Users\UserFacade
 

@@ -15,11 +15,18 @@ abstract class BasePresenter extends \Flame\Application\UI\Presenter
 	protected $flashMessageControlFactory;
 
 	/**
+	 * @return \DoctrineSandbox\Security\User
+	 */
+	public function getUser()
+	{
+		return parent::getUser();
+	}
+
+	/**
 	 * @return \Flame\Addons\FlashMessages\FlashMessageControl
 	 */
 	protected function createComponentFlashMessage()
 	{
 		return $this->flashMessageControlFactory->create();
 	}
-
 }
