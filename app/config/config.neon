@@ -26,28 +26,28 @@ nette:
 
   application:
       mapping:
-        *: DoctrineSandbox\*Module\*Presenter
+        *: Flame\Blog\*Module\*Presenter
     
   session:
     expiration: 14 days
     autoStart: smart
 
 services:
-  routerFactory: \DoctrineSandbox\Router\RouterFactory
+  routerFactory: \Flame\Blog\Router\RouterFactory
   router: @routerFactory::createRouter
-  user: \DoctrineSandbox\Security\User
+  user: \Flame\Blog\Security\User
 
-  - \DoctrineSandbox\Security\Authenticator
+  - \Flame\Blog\Security\Authenticator
 
-  - \DoctrineSandbox\Entity\Users\UserFacade
+  - \Flame\Blog\Entity\Users\UserFacade
 
-  - \DoctrineSandbox\FrontModule\Forms\Sign\SignInFormProcess
+  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 
   - \Flame\Database\Connection(%database%)
 
 factories:
   signInForm:
-    implement: \DoctrineSandbox\FrontModule\Forms\Sign\ISignInFormFactory
+    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
 
   flashMessageControl:
     create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)

@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineSandbox\FrontModule;
+namespace Flame\Blog\FrontModule;
 
 /**
  * Homepage presenter.

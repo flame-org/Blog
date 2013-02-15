@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineSandbox\FrontModule;
+namespace Flame\Blog\FrontModule;
 
 /**
  * Sign in/out presenters.
@@ -10,7 +10,7 @@ class SignPresenter extends BasePresenter
 
 	/**
 	 * @autowire
-	 * @var \DoctrineSandbox\FrontModule\Forms\Sign\ISignInFormFactory
+	 * @var \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
 	 */
 	protected $signInFormFactory;
 

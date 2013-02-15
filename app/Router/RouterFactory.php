@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineSandbox\Router;
+namespace Flame\Blog\Router;
 
 use Nette\Application\Routers\RouteList,
 	Nette\Application\Routers\Route,

@@ -8,7 +8,7 @@
  * @date    20.08.12
  */
 
-namespace DoctrineSandbox\Entity\Users;
+namespace Flame\Blog\Entity\Users;
 
 class User extends \Flame\Doctrine\Entity
 {

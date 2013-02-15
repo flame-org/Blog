@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineSandbox\Security;
+namespace Flame\Blog\Security;
 
 use Nette\Security as NS;
 
@@ -11,14 +11,14 @@ use Nette\Security as NS;
 class Authenticator extends \Flame\Security\Authenticator
 {
 	/**
-	 * @var \DoctrineSandbox\Entity\Users\UserFacade
+	 * @var \Flame\Blog\Entity\Users\UserFacade
 	 */
 	private $userFacade;
 
 	/**
-	 * @param \DoctrineSandbox\Entity\Users\UserFacade $userFacade
+	 * @param \Flame\Blog\Entity\Users\UserFacade $userFacade
 	 */
-	public function __construct(\DoctrineSandbox\Entity\Users\UserFacade $userFacade)
+	public function __construct(\Flame\Blog\Entity\Users\UserFacade $userFacade)
 	{
 		$this->userFacade = $userFacade;
 	}

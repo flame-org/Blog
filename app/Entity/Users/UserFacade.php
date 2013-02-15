@@ -3,12 +3,12 @@
  * UserFacade.php
  *
  * @author  Jiří Šifalda <sifalda.jiri@gmail.com>
- * @package DoctrineSandbox
+ * @package Flame\Blog
  *
  * @date    20.08.12
  */
 
-namespace DoctrineSandbox\Entity\Users;
+namespace Flame\Blog\Entity\Users;
 
 class UserFacade extends \Flame\Database\Repository\Model
 {
@@ -16,7 +16,7 @@ class UserFacade extends \Flame\Database\Repository\Model
 	/**
 	 * @var string
 	 */
-	protected $repositoryName = '\DoctrineSandbox\Entity\Users\User';
+	protected $repositoryName = '\Flame\Blog\Entity\Users\User';
 
 	/**
 	 * @param $email

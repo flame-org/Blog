@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineSandbox\FrontModule;
+namespace Flame\Blog\FrontModule;
 
 /**
  * Base presenter for all application presenters.
@@ -15,7 +15,7 @@ abstract class BasePresenter extends \Flame\Application\UI\Presenter
 	protected $flashMessageControlFactory;
 
 	/**
-	 * @return \DoctrineSandbox\Security\User
+	 * @return \Flame\Blog\Security\User
 	 */
 	public function getUser()
 	{
