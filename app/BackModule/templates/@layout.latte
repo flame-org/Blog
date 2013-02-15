@@ -39,6 +39,7 @@
 	{include #content}
 
         <div class="footer">
+			<p>Logged as <strong>{$user->getIdentity()->email}</strong> | <a n:href="logout!">Logout</a></p>
             <p>&copy; Company 2013</p>
         </div>
     </div>
