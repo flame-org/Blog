@@ -20,6 +20,12 @@ class RouterFactory
 	{
 		$router = new RouteList();
 		$router[] = new Route('index.php', ':Front:Homepage:default', Route::ONE_WAY);
+		$router[] = new Route('back/<presenter>/<action>[/<id>]', array(
+			'module' => 'Back',
+			'presenter' => 'Wall',
+			'action' => 'default',
+			'id' => null
+		));
 		$router[] = new Route('<presenter>/<action>[/<id>]', array(
 			'module' => 'Front',
 			'presenter' => 'Homepage',
