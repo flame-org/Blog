@@ -1,0 +1,11 @@
+parameters:
+	database:
+		host: localhost
+		dbname:
+		user: root
+		password: root
+nette:
+
+services:
+
+factories:

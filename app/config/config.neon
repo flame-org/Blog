@@ -1,0 +1,73 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+parameters:
+  database:
+    driver: pdo_mysql
+    charset: utf8
+    port: 3306
+    prefix: Nette_
+
+    # config
+    host:
+    dbname:
+    user:
+    password:
+
+  entities: [%appDir%/Entity]
+
+php:
+  date.timezone: Europe/Prague
+  # zlib.output_compression: yes
+
+
+nette:
+  container:
+    debugger: false
+    
+  session:
+    expiration: 14 days
+    autoStart: smart
+
+
+services:
+  authenticator: DoctrineSandbox\Security\Authenticator
+  routerFactory: RouterFactory
+  router: @routerFactory::createRouter
+
+  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
+  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
+  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+
+  EventManager:
+    class: Doctrine\Common\EventManager
+    setup:
+      - addEventListener('loadClassMetadata', @TablePrefix)
+
+  EntityManagerConfig:
+    class: Doctrine\ORM\Configuration
+    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
+    setup:
+      - setSQLLogger(@SqlLogger)
+      - setProxyDir(%rootDir%/temp/proxy)
+      - setNamingStrategy(@MappingStrategy)
+
+  EntityManager:
+    class: Doctrine\ORM\EntityManager
+    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
+
+  UserFacade: \DoctrineSandbox\Entity\Users\UserFacade
+
+  SignInFormProcess: \DoctrineSandbox\Forms\Sign\SignInFormProcess
+
+factories:
+  signInForm:
+    implement: \DoctrineSandbox\Forms\Sign\ISignInFormFactory
+
+  flashMessageControl:
+    create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
+    implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory
+    parameters: [templateFile = null]
