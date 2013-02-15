@@ -16,12 +16,32 @@
 
 <body>
 
-	{control flashMessage}
+	<div class="container-narrow">
 
-	{include #content}
+        <div class="container-narrow">
+
+            <div class="masthead">
+                <ul class="nav nav-pills pull-right">
+                    <li n:class="$presenter->isLinkCurrent('Homepage:') ? active"><a n:href="Homepage:">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <h1 class="muted">Project name</h1>
+            </div>
+
+            <hr>
+
+		{control flashMessage}
+
+		{include #content}
+
+		<div class="footer">
+			<p>&copy; Company 2013</p>
+		</div>
+	</div>
 
 	{#scripts}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
 	<script src="{$basePath}/js/ajax.js"></script>
