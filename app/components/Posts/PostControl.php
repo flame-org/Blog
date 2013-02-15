@@ -55,6 +55,24 @@ class PostControl extends \Flame\Application\UI\Control
 	}
 
 	/**
+	 * @param null $id
+	 */
+	public function handleDelete($id = null)
+	{
+		if($post = $this->postFacade->getOne($id)){
+			$this->postFacade->delete($post);
+		}else{
+			$this->presenter->flashMessage('Post does not exist', 'error');
+		}
+
+		if($this->presenter->isAjax()){
+			$this->invalidateControl('posts');
+		}else{
+			$this->redirect('this');
+		}
+	}
+
+	/**
 	 * @return Forms\PostForm
 	 */
 	protected function createComponentPostForm()
