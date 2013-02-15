@@ -32,3 +32,15 @@ body {
     font-size: 21px;
     padding: 14px 24px;
 }
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
