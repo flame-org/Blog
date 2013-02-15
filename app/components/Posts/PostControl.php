@@ -71,6 +71,17 @@ class PostControl extends \Flame\Application\UI\Control
 		$this->template->setFile(__DIR__ . '/PostControlAdmin.latte')->render();
 	}
 
+	public function renderDetail()
+	{
+		if(!$this->post){
+			$this->template->setFile(__DIR__ . '/PostControlNotFound.latte')->render();
+		}else{
+			$this->template->post = $this->post;
+			$this->template->setFile(__DIR__ . '/PostControlDetail.latte')->render();
+		}
+
+	}
+
 	/**
 	 * @param null $id
 	 */

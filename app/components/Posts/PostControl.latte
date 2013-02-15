@@ -1,9 +1,9 @@
 {if count($posts)}
 	{foreach $posts as $post}
 	<div class="jumbotron">
-		<h2>{$post->title}</h2>
+		<h2><a href="{plink Homepage:post $post->id}">{$post->title}</a></h2>
 		<p class="lead">{$post->content}</p>
 	</div>
-	<hr />
+	{if !$iterator->isLast()}<hr />{/if}
 	{/foreach}
 {/if}
