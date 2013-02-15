@@ -11,7 +11,7 @@
 namespace Flame\Blog\Entity\Users;
 
 /**
- * @Entity(repositoryClass="\Flame\Model\Repository")
+ * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
  */
 class User extends \Flame\Doctrine\Entity
 {

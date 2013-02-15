@@ -3,3 +3,4 @@ deployment.*
 !deployment.ini
 temp
 log
+config.*.neon

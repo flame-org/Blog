@@ -6,7 +6,9 @@
 #
 parameters:
   database:
-    driver: mysql
+    driver: pdo_mysql
+    charset: utf8
+    port: 3306
     prefix: bl_
 
     # config
@@ -14,6 +16,8 @@ parameters:
     dbname:
     user:
     password:
+
+  entities: [%appDir%/Entity]
 
 php:
   date.timezone: Europe/Prague
@@ -32,6 +36,7 @@ nette:
     expiration: 14 days
     autoStart: smart
 
+
 services:
   routerFactory: \Flame\Blog\Router\RouterFactory
   router: @routerFactory::createRouter
@@ -43,7 +48,26 @@ services:
 
   - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 
-  - \Flame\Database\Connection(%database%)
+  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
+  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
+  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+
+  EventManager:
+    class: Doctrine\Common\EventManager
+    setup:
+      - addEventListener('loadClassMetadata', @TablePrefix)
+
+  EntityManagerConfig:
+    class: Doctrine\ORM\Configuration
+    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
+    setup:
+      - setSQLLogger(@SqlLogger)
+      - setProxyDir(%rootDir%/temp/proxy)
+      - setNamingStrategy(@MappingStrategy)
+
+  EntityManager:
+    class: Doctrine\ORM\EntityManager
+    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
 
 factories:
   signInForm:
