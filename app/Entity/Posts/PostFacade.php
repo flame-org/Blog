@@ -22,6 +22,14 @@ class PostFacade extends \Flame\Doctrine\Model\Facade
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getLastPublic()
+	{
+		return $this->repository->findBy(array('public' => true), array('id' => 'DESC'));
+	}
+
+	/**
 	 * @param Post $post
 	 * @return mixed
 	 */

@@ -57,7 +57,7 @@ class PostControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->template->posts = $this->postFacade->getLast();
+		$this->template->posts = $this->postFacade->getLastPublic();
 		$this->template->setFile(__DIR__ . '/templates/default.latte')->render();
 	}
 
