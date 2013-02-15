@@ -46,6 +46,7 @@ class SignInForm extends \Flame\Blog\Application\UI\Form
 	private function configure()
 	{
 		$this->addText('email', 'Email:')
+			->setType('email')
 			->setRequired('Please provide a email.');
 
 		$this->addPassword('password', 'Password:')
@@ -53,7 +54,8 @@ class SignInForm extends \Flame\Blog\Application\UI\Form
 
 		$this->addCheckbox('remember', 'Remember me on this computer');
 
-		$this->addSubmit('send', 'Sign in');
+		$this->addSubmit('send', 'Sign in')
+			->setAttribute('class', 'btn-primary');
 	}
 
 
