@@ -45,6 +45,7 @@ services:
   - \Flame\Blog\Security\Authenticator
 
   - \Flame\Blog\Entity\Users\UserFacade
+  - \Flame\Blog\Entit\Posts\PostFacade
 
   - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 
