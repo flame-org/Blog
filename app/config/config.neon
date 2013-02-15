@@ -33,7 +33,7 @@ nette:
     autoStart: smart
 
 services:
-  routerFactory: RouterFactory
+  routerFactory: \DoctrineSandbox\Router\RouterFactory
   router: @routerFactory::createRouter
   user: \DoctrineSandbox\Security\User
 
