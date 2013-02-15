@@ -8,7 +8,7 @@
 
 namespace Flame\Blog\Components\Posts\Forms;
 
-class PostForm extends \Flame\Blog\Application\UI\Form
+class PostForm extends \Flame\Blog\Application\UI\TemplateForm
 {
 
 	/** @var bool */
@@ -83,7 +83,7 @@ class PostForm extends \Flame\Blog\Application\UI\Form
 
 	private function configure()
 	{
-		$this->addText('title', 'Title', 60, 250)
+		$this->addText('title', 'Title', 80, 250)
 			->setRequired();
 		$this->addTextArea('content', 'Content', 62, 20)
 			->setRequired();

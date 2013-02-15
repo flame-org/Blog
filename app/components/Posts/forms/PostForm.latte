@@ -1,0 +1,80 @@
+<script src="/epiceditor/js/epiceditor.min.js"></script>
+
+{form $form}
+	{control $form errors}
+
+	<div class="left">
+	{label title /}
+    </div>
+
+	<div class="right">
+	{input title}
+	</div>
+	<br class="clear" />
+
+	{label content /}
+	<div id="epiceditor"></div>
+
+	{input content}
+
+	<br />
+
+	<div class="left">
+		{input public}
+	</div>
+	<div class="left">
+		{label public /}
+    </div>
+
+	<br class="clear" />
+	<br />
+
+	{input send}
+
+{/form}
+
+
+<script>
+
+    var opts = {
+        container: 'epiceditor',
+        basePath: '/epiceditor',
+        clientSideStorage: false,
+        localStorageName: 'epiceditor',
+        useNativeFullsreen: true,
+        parser: marked,
+        file: {
+            name: 'epiceditor',
+            defaultContent: '',
+            autoSave: 100
+        },
+        theme: {
+            base:'/themes/base/epiceditor.css',
+            preview:'/themes/preview/preview-dark.css',
+            editor:'/themes/editor/epic-dark.css'
+        },
+        focusOnLoad: false,
+        shortcut: {
+            modifier: 18,
+            fullscreen: 70,
+            preview: 80
+        }
+    }
+
+    var editor = new EpicEditor(opts);
+
+    $textarea = $('#frm-post-postForm-content');
+
+    editor.on('open', function () {
+        $textarea.hide();
+        editor.importFile('text', $textarea.val());
+    });
+
+    //Everytime it's updated, update the textarea
+    editor.on('update', function (file) {
+        $textarea.val(file.content);
+    });
+
+    // Everything is all setup, so load!
+    editor.load();
+</script>
