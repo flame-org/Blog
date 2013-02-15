@@ -7,13 +7,11 @@
 	"require": {
 		"php": ">= 5.3.0",
 		"nette/nette": "@dev",
-		"doctrine/orm": "2.3.0",
 		"flame/framework": "@dev"
 	},
 	
 	"require-dev": {
 		"dg/ftp-deployment": "@dev",
-		"symfony/console": "2.1.*",
 		"nette/tester": "@dev",
 		"janmarek/mockista": "@dev"
 	}

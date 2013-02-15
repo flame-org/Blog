@@ -6,18 +6,14 @@
 #
 parameters:
   database:
-    driver: pdo_mysql
-    charset: utf8
-    port: 3306
-    prefix: Nette_
+    driver: mysql
+    prefix: bl_
 
     # config
     host:
     dbname:
     user:
     password:
-
-  entities: [%appDir%/Entity]
 
 php:
   date.timezone: Europe/Prague
@@ -32,36 +28,17 @@ nette:
     expiration: 14 days
     autoStart: smart
 
-
 services:
-  authenticator: DoctrineSandbox\Security\Authenticator
   routerFactory: RouterFactory
   router: @routerFactory::createRouter
 
-  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
-  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
-  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+  - DoctrineSandbox\Security\Authenticator
 
-  EventManager:
-    class: Doctrine\Common\EventManager
-    setup:
-      - addEventListener('loadClassMetadata', @TablePrefix)
+  - \DoctrineSandbox\Entity\Users\UserFacade
 
-  EntityManagerConfig:
-    class: Doctrine\ORM\Configuration
-    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
-    setup:
-      - setSQLLogger(@SqlLogger)
-      - setProxyDir(%rootDir%/temp/proxy)
-      - setNamingStrategy(@MappingStrategy)
+  - \DoctrineSandbox\Forms\Sign\SignInFormProcess
 
-  EntityManager:
-    class: Doctrine\ORM\EntityManager
-    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
-
-  UserFacade: \DoctrineSandbox\Entity\Users\UserFacade
-
-  SignInFormProcess: \DoctrineSandbox\Forms\Sign\SignInFormProcess
+  - \Flame\Database\Connection(%database%)
 
 factories:
   signInForm:
