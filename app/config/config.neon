@@ -25,6 +25,9 @@ php:
 
 
 nette:
+  template:
+    helperLoaders: [\Flame\Blog\Templating\Helpers]
+
   container:
     debugger: false
 
