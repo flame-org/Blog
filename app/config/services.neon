@@ -1,0 +1,39 @@
+services:
+  routerFactory: \Flame\Blog\Router\RouterFactory
+  router: @routerFactory::createRouter
+  user: \Flame\Blog\Security\User
+
+  - \Flame\Blog\Security\Authenticator
+
+  - \Flame\Blog\Entity\Users\UserFacade
+  - \Flame\Blog\Entity\Posts\PostFacade
+  - \Flame\Blog\Entity\Settings\SettingFacade
+
+  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
+
+  - \Flame\Blog\Model\Posts\PostManager
+  - \Flame\Blog\Model\Settings\SettingManager
+  - \Flame\Blog\Model\Users\UserManager
+
+  SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
+
+  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
+  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
+  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+
+  EventManager:
+    class: Doctrine\Common\EventManager
+    setup:
+      - addEventListener('loadClassMetadata', @TablePrefix)
+
+  EntityManagerConfig:
+    class: Doctrine\ORM\Configuration
+    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
+    setup:
+      - setSQLLogger(@SqlLogger)
+      - setProxyDir(%rootDir%/temp/proxy)
+      - setNamingStrategy(@MappingStrategy)
+
+  EntityManager:
+    class: Doctrine\ORM\EntityManager
+    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)

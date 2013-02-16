@@ -1,0 +1,34 @@
+factories:
+  signInForm:
+    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
+
+  flashMessageControl:
+    create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
+    implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory
+    parameters: [templateFile = null]
+
+  postControl:
+    create: \Flame\Blog\Components\Posts\PostControl(%post%)
+    implement: \Flame\Blog\Components\Posts\IPostControlFactory
+    parameters: [\Flame\Blog\Entity\Posts\Post post = null]
+
+  postForm:
+    create: \Flame\Blog\Components\Posts\Forms\PostForm(%defaults%)
+    implement: \Flame\Blog\Components\Posts\Forms\IPostFormFactory
+    parameters: [array defaults = []]
+
+  settingControl:
+    implement: \Flame\Blog\Components\Settings\ISettingControlFactory
+
+  settingForm:
+    create: \Flame\Blog\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
+    implement: \Flame\Blog\Components\Settings\Forms\ISettingFormFactory
+    parameters: [array availableSettings, array default = []]
+
+  userForm:
+    create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
+    implement: \Flame\Blog\Components\Users\Forms\IUserFormFactory
+    parameters: [array default]
+
+  userControl:
+      implement: \Flame\Blog\Components\Users\IUserControlFactory

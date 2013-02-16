@@ -23,7 +23,6 @@ php:
   date.timezone: Europe/Prague
   # zlib.output_compression: yes
 
-
 nette:
   latte:
     macros:
@@ -36,7 +35,7 @@ nette:
       setting: @SettingHelper::setting
 
   container:
-    debugger: false
+    debugger: true
 
   application:
       mapping:
@@ -46,78 +45,6 @@ nette:
     expiration: 14 days
     autoStart: smart
 
-
-services:
-  routerFactory: \Flame\Blog\Router\RouterFactory
-  router: @routerFactory::createRouter
-  user: \Flame\Blog\Security\User
-
-  - \Flame\Blog\Security\Authenticator
-
-  - \Flame\Blog\Entity\Users\UserFacade
-  - \Flame\Blog\Entity\Posts\PostFacade
-  - \Flame\Blog\Entity\Settings\SettingFacade
-
-  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
-
-  - \Flame\Blog\Model\Posts\PostManager
-  - \Flame\Blog\Model\Settings\SettingManager
-  - \Flame\Blog\Model\Users\UserManager
-
-  SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
-
-  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
-  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
-  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
-
-  EventManager:
-    class: Doctrine\Common\EventManager
-    setup:
-      - addEventListener('loadClassMetadata', @TablePrefix)
-
-  EntityManagerConfig:
-    class: Doctrine\ORM\Configuration
-    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
-    setup:
-      - setSQLLogger(@SqlLogger)
-      - setProxyDir(%rootDir%/temp/proxy)
-      - setNamingStrategy(@MappingStrategy)
-
-  EntityManager:
-    class: Doctrine\ORM\EntityManager
-    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
-
-factories:
-  signInForm:
-    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
-
-  flashMessageControl:
-    create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
-    implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory
-    parameters: [templateFile = null]
-
-  postControl:
-    create: \Flame\Blog\Components\Posts\PostControl(%post%)
-    implement: \Flame\Blog\Components\Posts\IPostControlFactory
-    parameters: [\Flame\Blog\Entity\Posts\Post post = null]
-
-  postForm:
-    create: \Flame\Blog\Components\Posts\Forms\PostForm(%defaults%)
-    implement: \Flame\Blog\Components\Posts\Forms\IPostFormFactory
-    parameters: [array defaults = []]
-
-  settingControl:
-    implement: \Flame\Blog\Components\Settings\ISettingControlFactory
-
-  settingForm:
-    create: \Flame\Blog\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
-    implement: \Flame\Blog\Components\Settings\Forms\ISettingFormFactory
-    parameters: [array availableSettings, array default = []]
-
-  userForm:
-    create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
-    implement: \Flame\Blog\Components\Users\Forms\IUserFormFactory
-    parameters: [array default]
-
-  userControl:
-      implement: \Flame\Blog\Components\Users\IUserControlFactory
+includes:
+  - services.neon
+  - factories.neon
