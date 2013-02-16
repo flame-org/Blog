@@ -11,6 +11,47 @@ namespace Flame\Blog\Entity\Settings;
 class SettingFacade extends \Flame\Doctrine\Model\Facade
 {
 
+	/** @var string */
 	protected $repositoryName = '\Flame\Blog\Entity\Settings\Setting';
 
+	/** @var array */
+	private $settings = array(
+		'projectName' => Setting::STRING,
+		'alllowComments' => Setting::BOOL,
+		'disquesKey' => Setting::STRING,
+	);
+
+	/**
+	 * @return array
+	 */
+	public function getAvailableSetting()
+	{
+		return $this->settings;
+	}
+
+	/**
+	 * @param $name
+	 * @return null
+	 */
+	public function getAvailableSettingByName($name)
+	{
+		return (isset($this->settings[$name])) ? $this->settings[$name] : null;
+	}
+
+	/**
+	 * @param $name
+	 * @return Setting
+	 */
+	public function getOneByName($name)
+	{
+		return $this->repository->findOneBy(array('name' => $name));
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getLast()
+	{
+		return $this->repository->findBy(array(), array('id' => 'DESC'));
+	}
 }
