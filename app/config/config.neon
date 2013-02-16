@@ -28,9 +28,12 @@ nette:
   latte:
     macros:
       - \Flame\Blog\Latte\Macros\MarkdownMacros
+      - \Flame\Blog\Latte\Macros\BlogMacros
 
   template:
     helperLoaders: [\Flame\Blog\Templating\Helpers]
+    helpers:
+      setting: @SettingHelper::setting
 
   container:
     debugger: false
@@ -59,6 +62,8 @@ services:
 
   - \Flame\Blog\Model\Posts\PostManager
   - \Flame\Blog\Model\Settings\SettingManager
+
+  SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
 
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
   MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
