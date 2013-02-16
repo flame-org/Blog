@@ -35,7 +35,7 @@ nette:
       setting: @SettingHelper::setting
 
   container:
-    debugger: true
+    debugger: false
 
   application:
       mapping:
