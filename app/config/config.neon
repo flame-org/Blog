@@ -101,9 +101,7 @@ factories:
     parameters: [array defaults = []]
 
   settingControl:
-    create: \Flame\Blog\Components\Settings\SettingControl(%setting%)
     implement: \Flame\Blog\Components\Settings\ISettingControlFactory
-    parameters: [\Flame\Blog\Entity\Settings\Setting setting = null]
 
   settingForm:
     create: \Flame\Blog\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
