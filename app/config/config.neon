@@ -44,7 +44,3 @@ nette:
   session:
     expiration: 14 days
     autoStart: smart
-
-includes:
-  - services.neon
-  - factories.neon
