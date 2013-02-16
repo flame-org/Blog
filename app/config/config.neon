@@ -62,6 +62,7 @@ services:
 
   - \Flame\Blog\Model\Posts\PostManager
   - \Flame\Blog\Model\Settings\SettingManager
+  - \Flame\Blog\Model\Users\UserManager
 
   SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
 
@@ -112,3 +113,11 @@ factories:
     create: \Flame\Blog\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
     implement: \Flame\Blog\Components\Settings\Forms\ISettingFormFactory
     parameters: [array availableSettings, array default = []]
+
+  userForm:
+    create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
+    implement: \Flame\Blog\Components\Users\Forms\IUserFormFactory
+    parameters: [array default]
+
+  userControl:
+      implement: \Flame\Blog\Components\Users\IUserControlFactory
