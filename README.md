@@ -2,7 +2,7 @@
 
 Fast and simple blog for everyone (especially for programmers :-))
 
-**Based on [Flame](https://github.com/flame-org/Framework), Nette framework and Doctrine 2**
+**Based on [Flame](https://github.com/flame-org/Framework), Nette frameworks and Doctrine 2**
 
 ## Features
 * Posts management (create, edit, delete, count of views), Markdown syntax
