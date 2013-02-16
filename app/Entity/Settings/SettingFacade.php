@@ -17,6 +17,10 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 	/** @var array */
 	private $settings = array(
 		'projectName' => Setting::STRING,
+		'projectDesc' => Setting::STRING,
+		'seoKeywords' => Setting::STRING,
+		'seoDescription' => Setting::STRING,
+		'defaultTitle' => Setting::STRING,
 		'alllowComments' => Setting::BOOL,
 		'disqusKey' => Setting::STRING,
 	);

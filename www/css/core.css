@@ -12,11 +12,18 @@ body {
 }
 
 .masthead h1 {
-    font-size: 25px;
+    float: left;
 }
 
 .masthead h1 a {
     color: #808080;
+}
+
+.masthead h2 {
+    float: left;
+    margin-left: 15px;
+    padding-top: 10px;
+    font-size: 25px;
 }
 
 .jumbotron {

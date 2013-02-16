@@ -50,6 +50,11 @@ class PostPresenter extends FrontPresenter
 		}
 	}
 
+	public function renderDetail()
+	{
+		if($this->post) $this->template->title = $this->post->getTitle();
+	}
+
 	private function protectPostDuplicity($slug, \Flame\Blog\Entity\Posts\Post $post)
 	{
 		if($slug != Strings::webalize($post->getTitle())){

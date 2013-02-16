@@ -15,6 +15,12 @@ abstract class FrontPresenter extends \Flame\Application\UI\Presenter
 	protected $flashMessageControlFactory;
 
 	/**
+	 * @autowire
+	 * @var \Flame\Blog\Entity\Settings\SettingFacade
+	 */
+	protected $settingFacade;
+
+	/**
 	 * @return \Flame\Blog\Security\User
 	 */
 	public function getUser()
@@ -28,5 +34,10 @@ abstract class FrontPresenter extends \Flame\Application\UI\Presenter
 	protected function createComponentFlashMessage()
 	{
 		return $this->flashMessageControlFactory->create();
+	}
+
+	protected function beforeRender()
+	{
+		$this->template->title = $this->settingFacade->getOneByName('defaultTitle');
 	}
 }
