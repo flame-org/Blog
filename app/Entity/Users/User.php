@@ -10,6 +10,8 @@
 
 namespace Flame\Blog\Entity\Users;
 
+use Flame\Types\Password;
+
 /**
  * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
  */
@@ -27,13 +29,19 @@ class User extends \Flame\Doctrine\Entity
 	protected $password;
 
 	/**
+	 * @Column(type="string", length=5)
+	 */
+	protected $passwordSalt;
+
+	/**
 	 * @param $email
 	 * @param $password
 	 */
-	public function __construct($email, $password)
+	public function __construct($email, Password $password)
 	{
 		$this->email = $email;
-		$this->password = $password;
+		$this->password = (string) $password;
+		$this->passwordSalt = $password->getSalt();
 	}
 
 	public function getEmail()
@@ -49,12 +57,13 @@ class User extends \Flame\Doctrine\Entity
 
 	public function getPassword()
 	{
-		return $this->password;
+		return new Password($this->password, $this->passwordSalt);
 	}
 
-	public function setPassword($password)
+	public function setPassword(Password $password)
 	{
 		$this->password = (string) $password;
+		$this->passwordSalt = $password->getSalt();
 		return $this;
 	}
 }

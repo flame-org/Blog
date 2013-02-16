@@ -34,16 +34,15 @@ class Authenticator extends \Flame\Security\Authenticator
 		list($email, $password) = $credentials;
 		$user = $this->userFacade->getOneByEmail($email);
 
-		if (!$user) {
+		if (!$user)
 			throw new NS\AuthenticationException("User '$email' not found.", self::IDENTITY_NOT_FOUND);
-		}
 
-		if ($user->password !== $this->calculateHash($password, $user->password)) {
+		if (!$user->getPassword()->isEqual((string) $password))
 			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
-		}
 
-		$user->setPassword(null);
-		return new NS\Identity($user->getId(), null, $user->toArray());
+		$data = $user->toArray();
+		unset($data['password'], $data['passwordSalt']);
+		return new NS\Identity($user->getId(), null, $data);
 	}
 
 }
