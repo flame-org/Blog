@@ -75,4 +75,9 @@ class Setting extends \Flame\Doctrine\Entity
 		$this->value = (string) $value;
 		return $this;
 	}
+
+	public function __toString()
+	{
+		return (string) $this->value;
+	}
 }
