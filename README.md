@@ -42,3 +42,8 @@ Fast and simple blog for everyone (especially for programmers :-))
 
  Email: user@demo.com
  Password: password12
+
+
+#### Available settings
+
+	projectName, projectDesc, seoKeywords, seoDescription, defaultTitle, alllowComments, alllowSharing, disqusKey, itemsPerPage
