@@ -27,11 +27,6 @@ class User extends \Flame\Doctrine\Entity
 	protected $password;
 
 	/**
-	 * @Column(type="string", length=255)
-	 */
-	protected $name;
-
-	/**
 	 * @param $email
 	 * @param $password
 	 */
@@ -60,17 +55,6 @@ class User extends \Flame\Doctrine\Entity
 	public function setPassword($password)
 	{
 		$this->password = (string) $password;
-		return $this;
-	}
-
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	public function setName($name)
-	{
-		$this->name = (string) $name;
 		return $this;
 	}
 }
