@@ -98,11 +98,7 @@ class PostControl extends \Flame\Application\UI\Control
 			$this->presenter->flashMessage('Access denied');
 		}
 
-		if($this->presenter->isAjax()){
-			$this->invalidateControl('posts');
-		}else{
-			$this->redirect('this');
-		}
+		$this->redirect('this');
 	}
 
 	/**
