@@ -71,3 +71,12 @@ input, textarea {
     border-right: 0;
     border-radius: 0 3px 3px 0;
 }
+
+.sharing {
+    margin: 10px 0;
+}
+
+.sharing li {
+    display: inline;
+    padding: 10px;
+}

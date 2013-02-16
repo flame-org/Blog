@@ -22,6 +22,7 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 		'seoDescription' => Setting::STRING,
 		'defaultTitle' => Setting::STRING,
 		'alllowComments' => Setting::BOOL,
+		'alllowSharing' => Setting::BOOL,
 		'disqusKey' => Setting::STRING,
 	);
 

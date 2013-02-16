@@ -31,7 +31,7 @@ nette:
       - \Flame\Blog\Latte\Macros\BlogMacros
 
   template:
-    helperLoaders: [\Flame\Blog\Templating\Helpers]
+    helperLoaders: [\Flame\Blog\Templating\Helpers, \Flame\Templating\Helpers]
     helpers:
       setting: @SettingHelper::setting
 
