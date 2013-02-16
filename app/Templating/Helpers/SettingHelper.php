@@ -24,11 +24,13 @@ class SettingHelper extends \Nette\Object
 
 	/**
 	 * @param $setting
-	 * @return \Flame\Blog\Entity\Settings\Setting
+	 * @return string
 	 */
 	public function setting($setting)
 	{
-		return $this->settingFacade->getOneByName($setting);
+		if($setting = $this->settingFacade->getOneByName($setting)){
+			return $setting->getValue();
+		}
 	}
 
 }
