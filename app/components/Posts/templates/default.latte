@@ -6,6 +6,8 @@
 	</div>
 	{if !$iterator->isLast()}<hr />{/if}
 	{/foreach}
+
+	{control paginator}
 {else}
 	<h2>No posts yet</h2>
 {/if}

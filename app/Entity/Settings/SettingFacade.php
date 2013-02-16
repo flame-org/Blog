@@ -24,6 +24,7 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 		'alllowComments' => Setting::BOOL,
 		'alllowSharing' => Setting::BOOL,
 		'disqusKey' => Setting::STRING,
+		'itemsPerPage' => Setting::STRING,
 	);
 
 	/**

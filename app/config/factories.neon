@@ -31,4 +31,7 @@ factories:
     parameters: [array default]
 
   userControl:
-      implement: \Flame\Blog\Components\Users\IUserControlFactory
+    implement: \Flame\Blog\Components\Users\IUserControlFactory
+
+  paginator:
+    implement: \Flame\Addons\VisualPaginator\IPaginatorFactory

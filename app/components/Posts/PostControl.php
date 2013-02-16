@@ -11,6 +11,9 @@ namespace Flame\Blog\Components\Posts;
 class PostControl extends \Flame\Application\UI\Control
 {
 
+	/** @var int */
+	private $itemsPerPage = 10;
+
 	/** @var \Flame\Blog\Entity\Posts\Post */
 	private $post;
 
@@ -22,6 +25,28 @@ class PostControl extends \Flame\Application\UI\Control
 
 	/** @var \Flame\Blog\Security\User */
 	private $user;
+
+	/** @var \Flame\Addons\VisualPaginator\IPaginatorFactory */
+	private $paginatorFactory;
+
+	/** @var \Flame\Blog\Entity\Settings\SettingFacade */
+	private $settingFacade;
+
+	/**
+	 * @param \Flame\Blog\Entity\Settings\SettingFacade $settingFacade
+	 */
+	public function injectSettingFacade(\Flame\Blog\Entity\Settings\SettingFacade $settingFacade)
+	{
+		$this->settingFacade = $settingFacade;
+	}
+
+	/**
+	 * @param \Flame\Addons\VisualPaginator\IPaginatorFactory $paginatorFactory
+	 */
+	public function injectPaginatorFactory(\Flame\Addons\VisualPaginator\IPaginatorFactory $paginatorFactory)
+	{
+		$this->paginatorFactory = $paginatorFactory;
+	}
 
 	/**
 	 * @param \Flame\Blog\Security\User $user
@@ -57,7 +82,7 @@ class PostControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->template->posts = $this->postFacade->getLastPublic();
+		$this->initPaginator($this->postFacade->getLastPublic());
 		$this->template->setFile(__DIR__ . '/templates/default.latte')->render();
 	}
 
@@ -68,7 +93,7 @@ class PostControl extends \Flame\Application\UI\Control
 
 	public function renderAdmin()
 	{
-		$this->template->posts = $this->postFacade->getLast();
+		$this->initPaginator($this->postFacade->getLast());
 		$this->template->setFile(__DIR__ . '/templates/admin.latte')->render();
 	}
 
@@ -115,4 +140,45 @@ class PostControl extends \Flame\Application\UI\Control
 		return $form;
 	}
 
+	/**
+	 * @return \Flame\Addons\VisualPaginator\Paginator
+	 */
+	protected function createComponentPaginator()
+	{
+		return $this->paginatorFactory->create();
+	}
+
+	/**
+	 * @param array $posts
+	 */
+	private function initPaginator(array $posts)
+	{
+		$this->initItemsPerPage();
+
+		$paginator = $this['paginator']->getPaginator();
+		$paginator->itemsPerPage = $this->itemsPerPage;
+		$paginator->itemCount = count($posts);
+
+		if(is_array($posts) and count($posts))
+			$posts = $this->getItemsPerPage($posts, $paginator->offset);
+
+		$this->template->posts = $posts;
+	}
+
+	/**
+	 * @param $posts
+	 * @param $offset
+	 * @return array
+	 */
+	private function getItemsPerPage(array &$posts, $offset)
+	{
+		return array_slice($posts, $offset, $this->itemsPerPage);
+	}
+
+	private function initItemsPerPage()
+	{
+		if($setting = $this->settingFacade->getOneByName('itemsPerPage')){
+			$this->itemsPerPage = $setting->getValue();
+		}
+	}
 }
