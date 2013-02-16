@@ -3,7 +3,9 @@
     <h2 n:block="title">{$post->title}</h2>
     <div class="lead">{md $post->content}</div>
 
-	<span class="label label-success">{$post->date|date:'%d.%m.%Y at %X'}</span>
+	<span class="label label-success">{$post->date|date:'%d.%m.%Y'}</span>
+        at
+        <span class="label label-important">{$post->date|date:'%X'}</span>
 
 	<br /><br />
 
