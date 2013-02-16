@@ -53,6 +53,7 @@ services:
 
   - \Flame\Blog\Entity\Users\UserFacade
   - \Flame\Blog\Entity\Posts\PostFacade
+  - \Flame\Blog\Entity\Settings\Setting
 
   - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 
