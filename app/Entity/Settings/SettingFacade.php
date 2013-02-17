@@ -60,4 +60,15 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 	{
 		return $this->repository->findBy(array(), array('id' => 'DESC'));
 	}
+
+	/**
+	 * @param $name
+	 * @return string
+	 */
+	public function getSettingValue($name)
+	{
+		if($setting = $this->getOneByName($name)){
+			return $setting->getValue();
+		}
+	}
 }
