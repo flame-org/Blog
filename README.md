@@ -5,11 +5,14 @@ Fast and simple blog for everyone (especially for programmers :-))
 **Based on [Flame](https://github.com/flame-org/Framework), Nette frameworks and Doctrine 2**
 
 ## Features
-* Posts management (create, edit, delete, count of views), Markdown syntax
+* Posts management (create, edit, delete, count of views)
+* Markdown syntax for posts
+* Posts paginator
 * Comments powered by Disqus
 * Post sharing on Twitter, Facebook, Google+
 * Global settings and options
 * User management
+* RSS feed control
 
 ## Instalation
 1. Download or clone this repo
