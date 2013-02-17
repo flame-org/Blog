@@ -13,6 +13,7 @@ Fast and simple blog for everyone (especially for programmers :-))
 * Global settings and options
 * User management
 * RSS feed control
+* Wordpress posts importer
 
 ## Instalation
 1. Download or clone this repo
