@@ -34,8 +34,8 @@ class RssPresenter extends FrontPresenter
 		$rss = $this["rssFeed"];
 
 		// properties
-		$rss->title = $this->settingFacade->getSettingValue('projectName');
-		$rss->description = $this->settingFacade->getSettingValue('projectDesc');
+		$rss->title = $this->settingFacade->getSettingValue('projectName') ?: 'TITLE';
+		$rss->description = $this->settingFacade->getSettingValue('projectDesc') ?: 'DESC';
 		$rss->link = $this->link("//:Front:Post:");
 		$rss->setChannelProperty("lastBuildDate", time());
 		// je možno použít odpovídající metody setTitle, setDescription, setLink
