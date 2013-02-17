@@ -50,4 +50,4 @@ Fast and simple blog for everyone (especially for programmers :-))
 
 #### Available settings
 
-	projectName, projectDesc, seoKeywords, seoDescription, defaultTitle, alllowComments, alllowSharing, disqusKey, itemsPerPage
+	projectName, projectDesc, seoKeywords, seoDescription, alllowComments, alllowSharing, disqusKey, itemsPerPage

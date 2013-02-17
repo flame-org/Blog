@@ -38,6 +38,6 @@ abstract class FrontPresenter extends \Flame\Application\UI\Presenter
 
 	protected function beforeRender()
 	{
-		$this->template->title = $this->settingFacade->getOneByName('defaultTitle');
+		$this->template->title = $this->settingFacade->getOneByName('projectDesc');
 	}
 }

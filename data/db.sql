@@ -33,7 +33,6 @@ INSERT INTO `bl_setting` (`id`, `type`, `name`, `value`) VALUES
 (2,	1,	'projectDesc',	'Blog for everyone'),
 (3,	1,	'seoKeywords',	''),
 (4,	1,	'seoDescription',	''),
-(5,	1,	'defaultTitle',	'Flame:Blog'),
 (6,	3,	'alllowComments',	''),
 (7,	3,	'alllowSharing',	''),
 (8,	1,	'disqusKey',	'');
