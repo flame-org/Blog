@@ -24,6 +24,7 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 		'alllowSharing' => Setting::BOOL,
 		'disqusKey' => Setting::STRING,
 		'itemsPerPage' => Setting::STRING,
+		'maxRssItems' => Setting::STRING,
 	);
 
 	/**

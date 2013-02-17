@@ -41,7 +41,7 @@ class RssPresenter extends FrontPresenter
 		// je možno použít odpovídající metody setTitle, setDescription, setLink
 		// pro úpravu vlastností kanálu lze využít událost $onPrepareProperties
 
-		$items = $this->postFacade->getLastPublic();
+		$items = $this->postFacade->getLastPublic($this->settingFacade->getSettingValue('maxRssItems') ?: 25);
 
 		// úprava, lze také využít události $onPrepareItem
 		if(count($items)){
