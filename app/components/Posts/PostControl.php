@@ -82,7 +82,20 @@ class PostControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->initPaginator($this->postFacade->getLastPublic());
+
+		if($setting = $this->settingFacade->getSettingValue('itemsPerPage'))
+			$this->itemsPerPage = $setting;
+
+		$posts = $this->postFacade->getLastPublic();
+		$paginator = $this['paginator']->getPaginator();
+		$paginator->itemsPerPage = $this->itemsPerPage;
+		$paginator->itemCount = count($posts);
+
+		if(is_array($posts) and count($posts))
+			$posts = $this->getItemsPerPage($posts, $paginator->offset);
+
+		$this->template->posts = $posts;
+
 		$this->template->setFile(__DIR__ . '/templates/default.latte')->render();
 	}
 
@@ -93,7 +106,17 @@ class PostControl extends \Flame\Application\UI\Control
 
 	public function renderAdmin()
 	{
-		$this->initPaginator($this->postFacade->getLast());
+		$posts = $this->postFacade->getLast();
+
+		$paginator = $this['paginator']->getPaginator();
+		$paginator->itemsPerPage = $this->itemsPerPage;
+		$paginator->itemCount = count($posts);
+
+		if(is_array($posts) and count($posts))
+			$posts = $this->getItemsPerPage($posts, $paginator->offset);
+
+		$this->template->posts = $posts;
+
 		$this->template->setFile(__DIR__ . '/templates/admin.latte')->render();
 	}
 
@@ -149,23 +172,6 @@ class PostControl extends \Flame\Application\UI\Control
 	}
 
 	/**
-	 * @param array $posts
-	 */
-	private function initPaginator(array $posts)
-	{
-		$this->initItemsPerPage();
-
-		$paginator = $this['paginator']->getPaginator();
-		$paginator->itemsPerPage = $this->itemsPerPage;
-		$paginator->itemCount = count($posts);
-
-		if(is_array($posts) and count($posts))
-			$posts = $this->getItemsPerPage($posts, $paginator->offset);
-
-		$this->template->posts = $posts;
-	}
-
-	/**
 	 * @param $posts
 	 * @param $offset
 	 * @return array
@@ -175,9 +181,4 @@ class PostControl extends \Flame\Application\UI\Control
 		return array_slice($posts, $offset, $this->itemsPerPage);
 	}
 
-	private function initItemsPerPage()
-	{
-		if($setting = $this->settingFacade->getSettingValue('itemsPerPage'))
-			$this->itemsPerPage = $setting;
-	}
 }
