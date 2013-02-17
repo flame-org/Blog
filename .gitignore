@@ -2,3 +2,4 @@ composer.lock
 deployment.*
 !deployment.ini
 config.*.neon
+www/media

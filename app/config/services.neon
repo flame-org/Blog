@@ -15,6 +15,9 @@ services:
   - \Flame\Blog\Model\Settings\SettingManager
   - \Flame\Blog\Model\Users\UserManager
 
+  - \Flame\Addons\WordPress\PostsImporter
+  - \Flame\Blog\Components\Imports\WordPress\Forms\WpImportFormProcess(%wwwDir%)
+
   SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
 
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register

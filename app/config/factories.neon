@@ -38,3 +38,9 @@ factories:
 
   rssControl:
     implement: \Flame\Addons\RssFeed\IRssControlFactory
+
+  wpImportForm:
+    implement: \Flame\Blog\Components\Imports\WordPress\Forms\IWpImportFormFactory
+
+  wpImportControl:
+    implement: \Flame\Blog\Components\Imports\WordPress\IWpImportControlFactory
