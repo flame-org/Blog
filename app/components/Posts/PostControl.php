@@ -177,8 +177,7 @@ class PostControl extends \Flame\Application\UI\Control
 
 	private function initItemsPerPage()
 	{
-		if($setting = $this->settingFacade->getOneByName('itemsPerPage')){
-			$this->itemsPerPage = $setting->getValue();
-		}
+		if($setting = $this->settingFacade->getSettingValue('itemsPerPage'))
+			$this->itemsPerPage = $setting;
 	}
 }
