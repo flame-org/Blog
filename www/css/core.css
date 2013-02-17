@@ -31,12 +31,7 @@ body {
     word-wrap: break-word;
 }
 .jumbotron h2 {
-    font-size: 62px;
-    line-height: 1;
-}
-
-.jumbotron h2 a {
-    color: #333;
+    letter-spacing: -1px;
 }
 
 input, textarea {
