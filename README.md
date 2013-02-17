@@ -15,7 +15,7 @@ If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/]
 * Global settings and options
 * User management
 * RSS feed control
-* Wordpress posts importer
+* Wordpress posts importer
 
 ## Instalation
 1. Download or clone this repo
