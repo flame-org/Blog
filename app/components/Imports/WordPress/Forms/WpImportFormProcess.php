@@ -114,6 +114,8 @@ class WpImportFormProcess extends \Nette\Object
 			$prepared['content'] = $data['content'];
 		if(isset($data['status']) and $data['status'] == 'publish')
 			$prepared['public'] = true;
+		if(isset($data['pubDate']))
+			$prepared['date'] = $data['pubDate'];
 
 		if(isset($data['images'][1]) and count($data['images'][1])){
 			foreach($data['images'][1] as $imageUrl){

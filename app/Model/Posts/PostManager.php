@@ -33,6 +33,9 @@ class PostManager extends \Flame\Model\Manager
 		$post = $this->createPost($data->title, $data->content);
 		$post->setPublic($data->public);
 
+		if(isset($data['date']))
+			$post->setDate($data['date']);
+
 		$this->postFacade->save($post);
 		return $post;
 	}
