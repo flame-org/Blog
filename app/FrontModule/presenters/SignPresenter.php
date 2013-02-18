@@ -20,7 +20,7 @@ class SignPresenter extends FrontPresenter
 
 		if($this->getUser()->isLoggedIn()){
 			$this->flashMessage('You are login yet.');
-			$this->redirect('Homepage:');
+			$this->redirect(':Back:Wall:');
 		}
 	}
 
