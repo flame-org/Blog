@@ -27,10 +27,9 @@ nette:
   latte:
     macros:
       - \Flame\Blog\Latte\Macros\MarkdownMacros
-      - \Flame\Blog\Latte\Macros\BlogMacros
 
   template:
-    helperLoaders: [\Flame\Blog\Templating\Helpers, \Flame\Templating\Helpers]
+    helperLoaders: [\Flame\Templating\Helpers]
     helpers:
       setting: @SettingHelper::setting
 
