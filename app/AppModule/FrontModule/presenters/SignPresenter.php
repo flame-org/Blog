@@ -30,7 +30,7 @@ class SignPresenter extends FrontPresenter
 	protected function createComponentSignInForm()
 	{
 		$form = $this->signInFormFactory->create();
-		$form->onSuccess[] = $this->lazyLink(':Back:Wall:');
+		$form->onSuccess[] = $this->lazyLink(':Back:Post:');
 		return $form;
 	}
 
