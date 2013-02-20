@@ -39,8 +39,6 @@ services:
   routerFactory: \Flame\Blog\Router\RouterFactory
   router: @routerFactory::createRouter
 
-  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
-
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
   MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
   TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
@@ -63,9 +61,6 @@ services:
     factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
 
 factories:
-  signInForm:
-    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
-
   flashMessageControl:
     create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
     implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory

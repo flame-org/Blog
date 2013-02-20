@@ -5,6 +5,7 @@ services:
   - \Flame\Blog\Model\Users\UserManager
   - \Flame\Blog\Entity\Users\UserFacade
 
+  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 factories:
   userForm:
     create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
@@ -13,3 +14,6 @@ factories:
 
   userControl:
     implement: \Flame\Blog\Components\Users\IUserControlFactory
+
+  signInForm:
+      implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
