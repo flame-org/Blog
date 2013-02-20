@@ -40,4 +40,12 @@ class PostFacade extends \Flame\Doctrine\Model\Facade
 		return $this->save($post);
 	}
 
+	/**
+	 * @param $id
+	 * @return Post
+	 */
+	public function getOnePublic($id)
+	{
+		return $this->repository->findOneBy(array('id' => $id, 'public' => 1));
+	}
 }

@@ -44,7 +44,7 @@ class PostPresenter extends FrontPresenter
 	 */
 	public function actionDetail($id = null, $slug = null)
 	{
-		if($this->post = $this->postFacade->getOne($id)){
+		if($this->post = $this->postFacade->getOnePublic($id)){
 			$this->protectPostDuplicity($slug, $this->post);
 			$this->postFacade->increaseViews($this->post);
 		}
