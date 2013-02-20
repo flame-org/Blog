@@ -16,4 +16,4 @@ factories:
     implement: \Flame\Blog\Components\Users\IUserControlFactory
 
   signInForm:
-      implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
+    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
