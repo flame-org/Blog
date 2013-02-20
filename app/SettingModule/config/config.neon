@@ -1,0 +1,14 @@
+services:
+    - \Flame\Blog\Model\Settings\SettingManager
+    - \Flame\Blog\Entity\Settings\SettingFacade
+
+    SettingHelper: \Flame\Blog\Templating\Helpers\SettingHelper
+
+factories:
+  settingControl:
+    implement: \Flame\Blog\Components\Settings\ISettingControlFactory
+
+  settingForm:
+    create: \Flame\Blog\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
+    implement: \Flame\Blog\Components\Settings\Forms\ISettingFormFactory
+    parameters: [array availableSettings, array default = []]
