@@ -24,15 +24,6 @@ php:
   # zlib.output_compression: yes
 
 nette:
-  latte:
-    macros:
-      - \Flame\Blog\Latte\Macros\MarkdownMacros
-
-  template:
-    helperLoaders: [\Flame\Templating\Helpers]
-    helpers:
-      setting: @SettingHelper::setting
-
   container:
     debugger: false
 
@@ -43,3 +34,44 @@ nette:
   session:
     expiration: 14 days
     autoStart: smart
+
+services:
+  routerFactory: \Flame\Blog\Router\RouterFactory
+  router: @routerFactory::createRouter
+
+  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
+
+  SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
+  MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
+  TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+
+  EventManager:
+    class: Doctrine\Common\EventManager
+    setup:
+      - addEventListener('loadClassMetadata', @TablePrefix)
+
+  EntityManagerConfig:
+    class: Doctrine\ORM\Configuration
+    factory: Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(%entities%, true)
+    setup:
+      - setSQLLogger(@SqlLogger)
+      - setProxyDir(%rootDir%/temp/proxy)
+      - setNamingStrategy(@MappingStrategy)
+
+  EntityManager:
+    class: Doctrine\ORM\EntityManager
+    factory: Doctrine\ORM\EntityManager::create(%database%, @EntityManagerConfig, @EventManager)
+
+factories:
+  signInForm:
+    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory
+
+  flashMessageControl:
+    create: \Flame\Addons\FlashMessages\FlashMessageControl(%templateFile%)
+    implement: \Flame\Addons\FlashMessages\IFlashMessageControlFactory
+    parameters: [templateFile = null]
+
+modules:
+  userModule: [%appDir%/UserModule/config/config.neon]
+  settingModule: \Flame\Blog\SettingModule\SettingModule([%appDir%/SettingModule/config/config.neon])
+  postModule: \Flame\Blog\PostModule\PostModule([%appDir%/PostModule/config/config.neon])

@@ -1,0 +1,15 @@
+services:
+  user: \Flame\Blog\Security\User
+
+  - \Flame\Blog\Security\Authenticator
+  - \Flame\Blog\Model\Users\UserManager
+  - \Flame\Blog\Entity\Users\UserFacade
+
+factories:
+  userForm:
+    create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
+    implement: \Flame\Blog\Components\Users\Forms\IUserFormFactory
+    parameters: [array default]
+
+  userControl:
+    implement: \Flame\Blog\Components\Users\IUserControlFactory
