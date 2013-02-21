@@ -17,33 +17,30 @@
 </head>
 
 <body>
-
 	<div class="container-narrow">
-        <div class="container-narrow">
-            <div class="masthead">
-				<h1 class="muted"><a href="/">{$template->setting('projectName')}</a></h1>
-				<h2>{$template->setting('projectDesc')}</h2>
+		<div class="masthead">
+			<h1 class="muted"><a href="/">{$template->setting('projectName')}</a></h1>
+			<h2>{$template->setting('projectDesc')}</h2>
 
-				<br class="clearfix" />
-				<br>
-            </div>
-
-            <hr>
-
-		{control flashMessage}
-
-		{include #content}
-
-        <hr />
-
-		<div class="footer">
-            <p class="alert alert-success" style="text-align: center; padding-top: 10px;">
-				<img src="/img/github.png" width="30" /> Tento web nic neskrývá. <a href="https://github.com/flame-org/Blog" target="_blank">Jeho zdrojový kód najdete na Githubu</a>.</p>
-
-			<p class="pull-left">&copy; Powered by <a href="http://projects.jsifalda.name/flame/" target="_blank">Flame:Blog</a> 2013</p>
-			<p class="pull-right">{if $user->isLoggedIn()}<a n:href=":Back:Post:">Admin</a>{else}<a n:href="Sign:in"> Sign in</a>{/if}</p>
 			<br class="clearfix" />
+			<br>
 		</div>
+
+		<hr>
+
+	{control flashMessage}
+
+	{include #content}
+
+	<hr />
+
+	<div class="footer">
+		<p class="alert alert-success" style="text-align: center; padding-top: 10px;">
+			<img src="/img/github.png" width="30" /> Tento web nic neskrývá. <a href="https://github.com/flame-org/Blog" target="_blank">Jeho zdrojový kód najdete na Githubu</a>.</p>
+
+		<p class="pull-left">&copy; Powered by <a href="http://projects.jsifalda.name/flame/" target="_blank">Flame:Blog</a> 2013</p>
+		<p class="pull-right">{if $user->isLoggedIn()}<a n:href=":Back:Post:">Admin</a>{else}<a n:href="Sign:in"> Sign in</a>{/if}</p>
+		<br class="clearfix" />
 	</div>
 
 	{#scripts}
