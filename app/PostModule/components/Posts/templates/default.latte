@@ -1,10 +1,12 @@
 {if count($posts)}
 	{foreach $posts as $post}
-	<div class="jumbotron">
-		<h2><a href="{plink Post:detail id => $post->id, slug => $template->webalize($post->title)}">{$post->title}</a></h2>
-        <div>{md $post->content}</div>
-	</div>
-	{if !$iterator->isLast()}<hr />{/if}
+
+		<div class="jumbotron">
+			<h2><a href="{plink Post:detail id => $post->id, slug => $template->webalize($post->title)}">{$post->title}</a></h2>
+			{md $post->content}
+		</div>
+
+		{if !$iterator->isLast()}<hr />{/if}
 	{/foreach}
 
 	{control paginator}
