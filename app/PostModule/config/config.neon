@@ -1,21 +1,21 @@
 services:
-  - \Flame\Blog\Entity\Posts\PostFacade
+  - \Flame\Blog\PostModule\Entity\Posts\PostFacade
 
-  - \Flame\Blog\Model\Posts\PostManager
+  - \Flame\Blog\PostModule\Model\Posts\PostManager
 
   - \Flame\Addons\WordPress\PostsImporter
-  - \Flame\Blog\Components\Imports\WordPress\Forms\WpImportFormProcess(%wwwDir%)
+  - \Flame\Blog\PostModule\Components\Imports\WordPress\Forms\WpImportFormProcess(%wwwDir%)
 
 
 factories:
   postControl:
-    create: \Flame\Blog\Components\Posts\PostControl(%post%)
-    implement: \Flame\Blog\Components\Posts\IPostControlFactory
-    parameters: [\Flame\Blog\Entity\Posts\Post post = null]
+    create: \Flame\Blog\PostModule\Components\Posts\PostControl(%post%)
+    implement: \Flame\Blog\PostModule\Components\Posts\IPostControlFactory
+    parameters: [\Flame\Blog\PostModule\Entity\Posts\Post post = null]
 
   postForm:
-    create: \Flame\Blog\Components\Posts\Forms\PostForm(%defaults%)
-    implement: \Flame\Blog\Components\Posts\Forms\IPostFormFactory
+    create: \Flame\Blog\PostModule\Components\Posts\Forms\PostForm(%defaults%)
+    implement: \Flame\Blog\PostModule\Components\Posts\Forms\IPostFormFactory
     parameters: [array defaults = []]
 
   paginator:
@@ -25,7 +25,7 @@ factories:
     implement: \Flame\Addons\RssFeed\IRssControlFactory
 
   wpImportForm:
-    implement: \Flame\Blog\Components\Imports\WordPress\Forms\IWpImportFormFactory
+    implement: \Flame\Blog\PostModule\Components\Imports\WordPress\Forms\IWpImportFormFactory
 
   wpImportControl:
-    implement: \Flame\Blog\Components\Imports\WordPress\IWpImportControlFactory
+    implement: \Flame\Blog\PostModule\Components\Imports\WordPress\IWpImportControlFactory

@@ -6,20 +6,20 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Model\Settings;
+namespace Flame\Blog\SettingModule\Model\Settings;
 
-use Flame\Blog\Entity\Settings\Setting;
+use Flame\Blog\SettingModule\Entity\Settings\Setting;
 
 class SettingManager extends \Flame\Model\Manager
 {
 
-	/** @var \Flame\Blog\Entity\Settings\SettingFacade */
+	/** @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade */
 	private $settingFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Settings\SettingFacade $settingFacade
+	 * @param \Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade
 	 */
-	public function injectSettingFacade(\Flame\Blog\Entity\Settings\SettingFacade $settingFacade)
+	public function injectSettingFacade(\Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade)
 	{
 		$this->settingFacade = $settingFacade;
 	}
@@ -54,7 +54,7 @@ class SettingManager extends \Flame\Model\Manager
 	 * @param $name
 	 * @param $value
 	 * @param int $type
-	 * @return \Flame\Blog\Entity\Settings\Setting
+	 * @return \Flame\Blog\SettingModule\Entity\Settings\Setting
 	 */
 	protected function createSetting($name, $value, $type = Setting::STRING)
 	{

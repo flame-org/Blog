@@ -12,24 +12,24 @@ class PostPresenter extends BackPresenter
 {
 
 	/**
-	 * @var \Flame\Blog\Entity\Posts\Post
+	 * @var \Flame\Blog\PostModule\Entity\Posts\Post
 	 */
 	private $post;
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Components\Posts\IPostControlFactory
+	 * @var \Flame\Blog\PostModule\Components\Posts\IPostControlFactory
 	 */
 	protected $postControlFactory;
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Entity\Posts\PostFacade
+	 * @var \Flame\Blog\PostModule\Entity\Posts\PostFacade
 	 */
 	protected $postFacade;
 
 	/**
-	 * @return \Flame\Blog\Components\Posts\PostControl
+	 * @return \Flame\Blog\PostModule\Components\Posts\PostControl
 	 */
 	protected function createComponentPost()
 	{

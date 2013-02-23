@@ -16,12 +16,12 @@ abstract class FrontPresenter extends \Flame\Application\UI\Presenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Entity\Settings\SettingFacade
+	 * @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade
 	 */
 	protected $settingFacade;
 
 	/**
-	 * @return \Flame\Blog\Security\User
+	 * @return \Flame\Blog\UserModule\Security\User
 	 */
 	public function getUser()
 	{

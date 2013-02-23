@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Components\Posts\Forms;
+namespace Flame\Blog\PostModule\Components\Posts\Forms;
 
 interface IPostFormFactory
 {

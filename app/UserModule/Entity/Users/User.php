@@ -8,7 +8,7 @@
  * @date    20.08.12
  */
 
-namespace Flame\Blog\Entity\Users;
+namespace Flame\Blog\UserModule\Entity\Users;
 
 use Flame\Types\Password;
 

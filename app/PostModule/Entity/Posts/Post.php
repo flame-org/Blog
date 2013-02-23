@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Entity\Posts;
+namespace Flame\Blog\PostModule\Entity\Posts;
 
 use DateTime;
 

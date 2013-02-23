@@ -13,13 +13,13 @@ class RssPresenter extends FrontPresenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Entity\Posts\PostFacade
+	 * @var \Flame\Blog\PostModule\Entity\Posts\PostFacade
 	 */
 	protected $postFacade;
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Entity\Settings\SettingFacade
+	 * @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade
 	 */
 	protected $settingFacade;
 
@@ -47,7 +47,7 @@ class RssPresenter extends FrontPresenter
 		if(count($items)){
 			$mdParser = $this->createMarkdownParser();
 			foreach ($items as &$item) {
-				if($item instanceof \Flame\Blog\Entity\Posts\Post){
+				if($item instanceof \Flame\Blog\PostModule\Entity\Posts\Post){
 					$item = $item->toArray();
 					$item["link"] = $this->link("//:Front:Post:detail", array(
 						'id' => $item["id"],

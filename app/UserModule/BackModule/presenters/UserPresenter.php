@@ -13,12 +13,12 @@ class UserPresenter extends BackPresenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Components\Users\IUserControlFactory
+	 * @var \Flame\Blog\UserModule\Components\Users\IUserControlFactory
 	 */
 	protected $userControlFactory;
 
 	/**
-	 * @return \Flame\Blog\Components\Users\UserControl
+	 * @return \Flame\Blog\UserModule\Components\Users\UserControl
 	 */
 	protected function createComponentUser()
 	{

@@ -8,7 +8,7 @@
  * @date    20.08.12
  */
 
-namespace Flame\Blog\Entity\Users;
+namespace Flame\Blog\UserModule\Entity\Users;
 
 class UserFacade extends \Flame\Doctrine\Model\Facade
 {
@@ -16,7 +16,7 @@ class UserFacade extends \Flame\Doctrine\Model\Facade
 	/**
 	 * @var string
 	 */
-	protected $repositoryName = '\Flame\Blog\Entity\Users\User';
+	protected $repositoryName = '\Flame\Blog\UserModule\Entity\Users\User';
 
 	/**
 	 * @param $email

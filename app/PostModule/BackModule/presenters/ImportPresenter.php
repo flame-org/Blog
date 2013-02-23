@@ -13,12 +13,12 @@ class ImportPresenter extends BackPresenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Components\Imports\WordPress\IWpImportControlFactory
+	 * @var \Flame\Blog\PostModule\Components\Imports\WordPress\IWpImportControlFactory
 	 */
 	protected $wpImportControlFactory;
 
 	/**
-	 * @return \Flame\Blog\Components\Imports\WordPress\WpImportControl
+	 * @return \Flame\Blog\PostModule\Components\Imports\WordPress\WpImportControl
 	 */
 	protected function createComponentWpImport()
 	{

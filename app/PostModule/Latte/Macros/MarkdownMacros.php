@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Latte\Macros;
+namespace Flame\Blog\PostModule\Latte\Macros;
 
 class MarkdownMacros extends \Nette\Latte\Macros\MacroSet
 {
@@ -32,7 +32,7 @@ class MarkdownMacros extends \Nette\Latte\Macros\MacroSet
 	 */
 	public static function markdownParser(\Nette\Latte\MacroNode $node, \Nette\Latte\PhpWriter $writer)
 	{
-		$cmd = "echo \\Flame\\Blog\\Latte\\Macros\\MarkdownMacros::getMakrdownParser()->transform(%node.word)";
+		$cmd = "echo \\Flame\\Blog\\PostModule\\Latte\\Macros\\MarkdownMacros::getMakrdownParser()->transform(%node.word)";
 		return $writer->write($cmd);
 	}
 

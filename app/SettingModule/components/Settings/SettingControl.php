@@ -6,29 +6,29 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Settings;
+namespace Flame\Blog\SettingModule\Components\Settings;
 
 class SettingControl extends \Flame\Application\UI\Control
 {
 
-	/** @var \Flame\Blog\Entity\Settings\SettingFacade */
+	/** @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade */
 	private $settingFacade;
 
-	/** @var \Flame\Blog\Components\Settings\Forms\ISettingFormFactory */
+	/** @var \Flame\Blog\SettingModule\Components\Settings\Forms\ISettingFormFactory */
 	private $settingFormFactory;
 
 	/**
-	 * @param \Flame\Blog\Components\Settings\Forms\ISettingFormFactory $settingFormFactory
+	 * @param \Flame\Blog\SettingModule\Components\Settings\Forms\ISettingFormFactory $settingFormFactory
 	 */
-	public function injectSettingFormFactory(\Flame\Blog\Components\Settings\Forms\ISettingFormFactory $settingFormFactory)
+	public function injectSettingFormFactory(\Flame\Blog\SettingModule\Components\Settings\Forms\ISettingFormFactory $settingFormFactory)
 	{
 		$this->settingFormFactory = $settingFormFactory;
 	}
 
 	/**
-	 * @param \Flame\Blog\Entity\Settings\SettingFacade $settingFacade
+	 * @param \Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade
 	 */
-	public function injectSettingFacade(\Flame\Blog\Entity\Settings\SettingFacade $settingFacade)
+	public function injectSettingFacade(\Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade)
 	{
 		$this->settingFacade = $settingFacade;
 	}

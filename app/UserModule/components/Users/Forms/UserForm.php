@@ -6,21 +6,21 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Users\Forms;
+namespace Flame\Blog\UserModule\Components\Users\Forms;
 
-class UserForm extends \Flame\Blog\Application\UI\Form
+class UserForm extends \Flame\Blog\AppModule\Application\UI\Form
 {
 
 	/** @var string */
 	private $email;
 
-	/** @var \Flame\Blog\Model\Users\UserManager */
+	/** @var \Flame\Blog\UserModule\Model\Users\UserManager */
 	private $userManager;
 
 	/**
-	 * @param \Flame\Blog\Model\Users\UserManager $userManager
+	 * @param \Flame\Blog\UserModule\Model\Users\UserManager $userManager
 	 */
-	public function injectUserManager(\Flame\Blog\Model\Users\UserManager $userManager)
+	public function injectUserManager(\Flame\Blog\UserModule\Model\Users\UserManager $userManager)
 	{
 		$this->userManager = $userManager;
 	}

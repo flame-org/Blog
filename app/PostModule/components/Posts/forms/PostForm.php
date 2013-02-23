@@ -6,9 +6,9 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Components\Posts\Forms;
+namespace Flame\Blog\PostModule\Components\Posts\Forms;
 
-class PostForm extends \Flame\Blog\Application\UI\TemplateForm
+class PostForm extends \Flame\Blog\AppModule\Application\UI\TemplateForm
 {
 
 	/** @var bool */
@@ -19,13 +19,13 @@ class PostForm extends \Flame\Blog\Application\UI\TemplateForm
 		'public' => true
 	);
 
-	/** @var \Flame\Blog\Model\Posts\PostManager */
+	/** @var \Flame\Blog\PostModule\Model\Posts\PostManager */
 	private $postManager;
 
 	/**
-	 * @param \Flame\Blog\Model\Posts\PostManager $postManager
+	 * @param \Flame\Blog\PostModule\Model\Posts\PostManager $postManager
 	 */
-	public function injectPostManager(\Flame\Blog\Model\Posts\PostManager $postManager)
+	public function injectPostManager(\Flame\Blog\PostModule\Model\Posts\PostManager $postManager)
 	{
 		$this->postManager = $postManager;
 	}

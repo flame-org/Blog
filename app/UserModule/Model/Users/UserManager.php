@@ -6,25 +6,25 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Model\Users;
+namespace Flame\Blog\UserModule\Model\Users;
 
 class UserManager extends \Flame\Model\Manager
 {
 
-	/** @var \Flame\Blog\Entity\Users\UserFacade */
+	/** @var \Flame\Blog\UserModule\Entity\Users\UserFacade */
 	private $userFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Users\UserFacade $userFacade
+	 * @param \Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade
 	 */
-	public function injectUserFacade(\Flame\Blog\Entity\Users\UserFacade $userFacade)
+	public function injectUserFacade(\Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade)
 	{
 		$this->userFacade = $userFacade;
 	}
 
 	/**
 	 * @param $data
-	 * @return \Flame\Blog\Entity\Users\User
+	 * @return \Flame\Blog\UserModule\Entity\Users\User
 	 * @throws \Nette\InvalidArgumentException
 	 */
 	public function update($data)
@@ -34,7 +34,7 @@ class UserManager extends \Flame\Model\Manager
 		if($data->newPassword != $data->newPasswordConfirm){
 			throw new \Nette\InvalidArgumentException('Password mishmash');
 		}else{
-			/** @var $user \Flame\Blog\Entity\Users\User */
+			/** @var $user \Flame\Blog\UserModule\Entity\Users\User */
 			if($user = $this->userFacade->getOneByEmail($data->email)){
 				$user->setPassword($this->createPassword($data->newPassword));
 				$this->userFacade->save($user);

@@ -6,18 +6,18 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Templating\Helpers;
+namespace Flame\Blog\SettingModule\Templating\Helpers;
 
 class SettingHelper extends \Nette\Object
 {
 
-	/** @var \Flame\Blog\Entity\Settings\SettingFacade */
+	/** @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade */
 	private $settingFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Settings\SettingFacade $settingFacade
+	 * @param \Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade
 	 */
-	public function injectSettingFacade(\Flame\Blog\Entity\Settings\SettingFacade $settingFacade)
+	public function injectSettingFacade(\Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade)
 	{
 		$this->settingFacade = $settingFacade;
 	}

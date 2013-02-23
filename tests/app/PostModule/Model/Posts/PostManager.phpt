@@ -6,23 +6,23 @@
  * @author Jiří Šifalda <sifalda.jiri@gmail.com>
  * @package Flame\Blog\Tests\Model\Posts
  */
-namespace Flame\Blog\Tests\Model\Posts;
+namespace Flame\Blog\Tests\PostModule\Model\Posts;
 
 use Tester\Assert;
 
-$container = require_once __DIR__ . '/../../bootstrap.php';
+$container = require_once __DIR__ . '/../../../bootstrap.php';
 
 class PostManagerTest extends \Flame\Tests\MockTestCase
 {
 
-	/** @var \Flame\Blog\Model\Posts\PostManager */
+	/** @var \Flame\Blog\PostModule\Model\Posts\PostManager */
 	private $postManager;
 
 	public function setUp()
 	{
 		parent::setUp();
 
-		$this->postManager = new \Flame\Blog\Model\Posts\PostManager;
+		$this->postManager = new \Flame\Blog\PostModule\Model\Posts\PostManager;
 	}
 
 	public function testCreateValidateInput()
@@ -36,19 +36,19 @@ class PostManagerTest extends \Flame\Tests\MockTestCase
 	public function testCreate()
 	{
 		$data = array('public' => true, 'content' => '', 'title' => '');
-		$postFacadeMock = $this->mockista->create('\Flame\Blog\Entity\Posts\PostFacade');
+		$postFacadeMock = $this->mockista->create('\Flame\Blog\PostModule\Entity\Posts\PostFacade');
 		$postFacadeMock->expects('save')
 			->once();
 
 		$this->postManager->injectPostFacade($postFacadeMock);
 		$re = $this->postManager->create($data);
-		Assert::true($re instanceof \Flame\Blog\Entity\Posts\Post);
+		Assert::true($re instanceof \Flame\Blog\PostModule\Entity\Posts\Post);
 	}
 
 	public function testUpdateNotExistPost()
 	{
 		$id = 1;
-		$postFacadeMock = $this->mockista->create('\Flame\Blog\Entity\Posts\PostFacade');
+		$postFacadeMock = $this->mockista->create('\Flame\Blog\PostModule\Entity\Posts\PostFacade');
 		$postFacadeMock->expects('getOne')
 			->with($id)
 			->once()
@@ -63,7 +63,7 @@ class PostManagerTest extends \Flame\Tests\MockTestCase
 	public function testUpdateValidateInput()
 	{
 		$id = 1;
-		$postFacadeMock = $this->mockista->create('\Flame\Blog\Entity\Posts\PostFacade');
+		$postFacadeMock = $this->mockista->create('\Flame\Blog\PostModule\Entity\Posts\PostFacade');
 		$postFacadeMock->expects('getOne')
 			->with($id)
 			->once()
@@ -78,9 +78,9 @@ class PostManagerTest extends \Flame\Tests\MockTestCase
 	public function testUpdate()
 	{
 		$id = 1;
-		$post = new \Flame\Blog\Entity\Posts\Post('', '');
+		$post = new \Flame\Blog\PostModule\Entity\Posts\Post('', '');
 
-		$postFacadeMock = $this->mockista->create('\Flame\Blog\Entity\Posts\PostFacade');
+		$postFacadeMock = $this->mockista->create('\Flame\Blog\PostModule\Entity\Posts\PostFacade');
 		$postFacadeMock->expects('getOne')
 			->with($id)
 			->once()
@@ -92,7 +92,7 @@ class PostManagerTest extends \Flame\Tests\MockTestCase
 		$this->postManager->injectPostFacade($postFacadeMock);
 
 		$result = $this->postManager->update($id, array('public' => true, 'content' => '', 'title' => ''));
-		Assert::true($result instanceof \Flame\Blog\Entity\Posts\Post);
+		Assert::true($result instanceof \Flame\Blog\PostModule\Entity\Posts\Post);
 	}
 }
 

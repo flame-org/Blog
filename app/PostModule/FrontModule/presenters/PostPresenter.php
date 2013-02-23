@@ -14,24 +14,24 @@ class PostPresenter extends FrontPresenter
 {
 
 	/**
-	 * @var \Flame\Blog\Entity\Posts\Post
+	 * @var \Flame\Blog\PostModule\Entity\Posts\Post
 	 */
 	private $post;
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Components\Posts\IPostControlFactory
+	 * @var \Flame\Blog\PostModule\Components\Posts\IPostControlFactory
 	 */
 	protected $postControlFactory;
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Entity\Posts\PostFacade
+	 * @var \Flame\Blog\PostModule\Entity\Posts\PostFacade
 	 */
 	protected $postFacade;
 
 	/**
-	 * @return \Flame\Blog\Components\Posts\PostControl
+	 * @return \Flame\Blog\PostModule\Components\Posts\PostControl
 	 */
 	protected function createComponentPost()
 	{
@@ -55,7 +55,7 @@ class PostPresenter extends FrontPresenter
 		if($this->post) $this->template->title = $this->post->getTitle();
 	}
 
-	private function protectPostDuplicity($slug, \Flame\Blog\Entity\Posts\Post $post)
+	private function protectPostDuplicity($slug, \Flame\Blog\PostModule\Entity\Posts\Post $post)
 	{
 		if($slug != Strings::webalize($post->getTitle())){
 			$this->redirect('this', array('id' => $post->getId(), 'slug' => Strings::webalize($post->getTitle())));

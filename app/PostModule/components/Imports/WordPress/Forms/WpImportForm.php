@@ -6,9 +6,9 @@
  * @date    17.02.13
  */
 
-namespace Flame\Blog\Components\Imports\WordPress\Forms;
+namespace Flame\Blog\PostModule\Components\Imports\WordPress\Forms;
 
-class WpImportForm extends \Flame\Blog\Application\UI\Form
+class WpImportForm extends \Flame\Blog\AppModule\Application\UI\Form
 {
 
 	/** @var WpImportFormProcess */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Flame\Blog\Security;
+namespace Flame\Blog\UserModule\Security;
 
 use Nette\Security as NS;
 
@@ -11,14 +11,14 @@ use Nette\Security as NS;
 class Authenticator extends \Flame\Security\Authenticator
 {
 	/**
-	 * @var \Flame\Blog\Entity\Users\UserFacade
+	 * @var \Flame\Blog\UserModule\Entity\Users\UserFacade
 	 */
 	private $userFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Users\UserFacade $userFacade
+	 * @param \Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade
 	 */
-	public function __construct(\Flame\Blog\Entity\Users\UserFacade $userFacade)
+	public function __construct(\Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade)
 	{
 		$this->userFacade = $userFacade;
 	}

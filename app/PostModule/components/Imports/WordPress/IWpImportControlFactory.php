@@ -6,7 +6,7 @@
  * @date    17.02.13
  */
 
-namespace Flame\Blog\Components\Imports\WordPress;
+namespace Flame\Blog\PostModule\Components\Imports\WordPress;
 
 interface IWpImportControlFactory
 {

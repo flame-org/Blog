@@ -6,7 +6,7 @@
  * @date    17.02.13
  */
 
-namespace Flame\Blog\Components\Imports\WordPress\Forms;
+namespace Flame\Blog\PostModule\Components\Imports\WordPress\Forms;
 
 use Flame\Utils\Strings;
 use Nette\InvalidArgumentException;
@@ -23,13 +23,13 @@ class WpImportFormProcess extends \Nette\Object
 	/** @var \Flame\Addons\WordPress\PostsImporter */
 	private $postImporter;
 
-	/** @var \Flame\Blog\Model\Posts\PostManager */
+	/** @var \Flame\Blog\PostModule\Model\Posts\PostManager */
 	private $postManager;
 
 	/**
-	 * @param \Flame\Blog\Model\Posts\PostManager $postManager
+	 * @param \Flame\Blog\PostModule\Model\Posts\PostManager $postManager
 	 */
-	public function injectPostManager(\Flame\Blog\Model\Posts\PostManager $postManager)
+	public function injectPostManager(\Flame\Blog\PostModule\Model\Posts\PostManager $postManager)
 	{
 		$this->postManager = $postManager;
 	}
@@ -100,7 +100,7 @@ class WpImportFormProcess extends \Nette\Object
 
 	/**
 	 * @param $data
-	 * @return \Flame\Blog\Entity\Posts\Post
+	 * @return \Flame\Blog\PostModule\Entity\Posts\Post
 	 */
 	private function createPost($data)
 	{

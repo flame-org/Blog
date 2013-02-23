@@ -6,12 +6,12 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Entity\Posts;
+namespace Flame\Blog\PostModule\Entity\Posts;
 
 class PostFacade extends \Flame\Doctrine\Model\Facade
 {
 
-	protected $repositoryName = '\Flame\Blog\Entity\Posts\Post';
+	protected $repositoryName = '\Flame\Blog\PostModule\Entity\Posts\Post';
 
 	/**
 	 * @return array

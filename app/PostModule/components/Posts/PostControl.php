@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Components\Posts;
+namespace Flame\Blog\PostModule\Components\Posts;
 
 class PostControl extends \Flame\Application\UI\Control
 {
@@ -14,28 +14,28 @@ class PostControl extends \Flame\Application\UI\Control
 	/** @var int */
 	private $itemsPerPage = 10;
 
-	/** @var \Flame\Blog\Entity\Posts\Post */
+	/** @var \Flame\Blog\PostModule\Entity\Posts\Post */
 	private $post;
 
-	/** @var \Flame\Blog\Components\Posts\Forms\IPostFormFactory */
+	/** @var \Flame\Blog\PostModule\Components\Posts\Forms\IPostFormFactory */
 	private $postFormFactory;
 
-	/** @var \Flame\Blog\Entity\Posts\PostFacade */
+	/** @var \Flame\Blog\PostModule\Entity\Posts\PostFacade */
 	private $postFacade;
 
-	/** @var \Flame\Blog\Security\User */
+	/** @var \Flame\Blog\UserModule\Security\User */
 	private $user;
 
 	/** @var \Flame\Addons\VisualPaginator\IPaginatorFactory */
 	private $paginatorFactory;
 
-	/** @var \Flame\Blog\Entity\Settings\SettingFacade */
+	/** @var \Flame\Blog\SettingModule\Entity\Settings\SettingFacade */
 	private $settingFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Settings\SettingFacade $settingFacade
+	 * @param \Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade
 	 */
-	public function injectSettingFacade(\Flame\Blog\Entity\Settings\SettingFacade $settingFacade)
+	public function injectSettingFacade(\Flame\Blog\SettingModule\Entity\Settings\SettingFacade $settingFacade)
 	{
 		$this->settingFacade = $settingFacade;
 	}
@@ -49,33 +49,33 @@ class PostControl extends \Flame\Application\UI\Control
 	}
 
 	/**
-	 * @param \Flame\Blog\Security\User $user
+	 * @param \Flame\Blog\UserModule\Security\User $user
 	 */
-	public function injectUser(\Flame\Blog\Security\User $user)
+	public function injectUser(\Flame\Blog\UserModule\Security\User $user)
 	{
 		$this->user = $user;
 	}
 
 	/**
-	 * @param \Flame\Blog\Entity\Posts\PostFacade $postFacade
+	 * @param \Flame\Blog\PostModule\Entity\Posts\PostFacade $postFacade
 	 */
-	public function injectPostFacade(\Flame\Blog\Entity\Posts\PostFacade $postFacade)
+	public function injectPostFacade(\Flame\Blog\PostModule\Entity\Posts\PostFacade $postFacade)
 	{
 		$this->postFacade = $postFacade;
 	}
 
 	/**
-	 * @param \Flame\Blog\Components\Posts\Forms\IPostFormFactory $postFormFactory
+	 * @param \Flame\Blog\PostModule\Components\Posts\Forms\IPostFormFactory $postFormFactory
 	 */
-	public function injectPostFormFactory(\Flame\Blog\Components\Posts\Forms\IPostFormFactory $postFormFactory)
+	public function injectPostFormFactory(\Flame\Blog\PostModule\Components\Posts\Forms\IPostFormFactory $postFormFactory)
 	{
 		$this->postFormFactory = $postFormFactory;
 	}
 
 	/**
-	 * @param \Flame\Blog\Entity\Posts\Post $post
+	 * @param \Flame\Blog\PostModule\Entity\Posts\Post $post
 	 */
-	public function __construct(\Flame\Blog\Entity\Posts\Post $post = null)
+	public function __construct(\Flame\Blog\PostModule\Entity\Posts\Post $post = null)
 	{
 		$this->post = $post;
 	}
@@ -155,7 +155,7 @@ class PostControl extends \Flame\Application\UI\Control
 	protected function createComponentPostForm()
 	{
 		$defaults = array();
-		if($this->post instanceof \Flame\Blog\Entity\Posts\Post)
+		if($this->post instanceof \Flame\Blog\PostModule\Entity\Posts\Post)
 			$defaults = $this->post->toArray();
 
 		$form = $this->postFormFactory->create($defaults);

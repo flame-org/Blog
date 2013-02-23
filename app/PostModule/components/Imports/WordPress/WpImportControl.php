@@ -6,18 +6,18 @@
  * @date    17.02.13
  */
 
-namespace Flame\Blog\Components\Imports\WordPress;
+namespace Flame\Blog\PostModule\Components\Imports\WordPress;
 
 class WpImportControl extends \Flame\Application\UI\Control
 {
 
-	/** @var \Flame\Blog\Components\Imports\WordPress\Forms\IWpImportFormFactory */
+	/** @var \Flame\Blog\PostModule\Components\Imports\WordPress\Forms\IWpImportFormFactory */
 	private $wpImportFormFactory;
 
 	/**
-	 * @param \Flame\Blog\Components\Imports\WordPress\Forms\IWpImportFormFactory $wpImportFormFactory
+	 * @param \Flame\Blog\PostModule\Components\Imports\WordPress\Forms\IWpImportFormFactory $wpImportFormFactory
 	 */
-	public function injectWpImportFormFactory(\Flame\Blog\Components\Imports\WordPress\Forms\IWpImportFormFactory $wpImportFormFactory)
+	public function injectWpImportFormFactory(\Flame\Blog\PostModule\Components\Imports\WordPress\Forms\IWpImportFormFactory $wpImportFormFactory)
 	{
 		$this->wpImportFormFactory = $wpImportFormFactory;
 	}

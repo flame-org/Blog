@@ -15,7 +15,7 @@ class PostModule extends \Flame\Config\Extensions\ModuleExtension
 	{
 		parent::loadConfiguration();
 
-		$this->registerLatteMacro('\Flame\Blog\Latte\Macros\MarkdownMacros');
+		$this->registerLatteMacro('\Flame\Blog\PostModule\Latte\Macros\MarkdownMacros');
 	}
 
 }

@@ -13,12 +13,12 @@ class SettingPresenter extends BackPresenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\Blog\Components\Settings\ISettingControlFactory
+	 * @var \Flame\Blog\SettingModule\Components\Settings\ISettingControlFactory
 	 */
 	protected $settingControlFactory;
 
 	/**
-	 * @return \Flame\Blog\Components\Settings\SettingControl
+	 * @return \Flame\Blog\SettingModule\Components\Settings\SettingControl
 	 */
 	protected function createComponentSetting()
 	{

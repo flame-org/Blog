@@ -6,20 +6,20 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Settings\Forms;
+namespace Flame\Blog\SettingModule\Components\Settings\Forms;
 
-use Flame\Blog\Entity\Settings\Setting;
+use Flame\Blog\SettingModule\Entity\Settings\Setting;
 
-class SettingForm extends \Flame\Blog\Application\UI\Form
+class SettingForm extends \Flame\Blog\AppModule\Application\UI\Form
 {
 
-	/** @var \Flame\Blog\Model\Settings\SettingManager */
+	/** @var \Flame\Blog\SettingModule\Model\Settings\SettingManager */
 	private $settingManager;
 
 	/**
-	 * @param \Flame\Blog\Model\Settings\SettingManager $settingManager
+	 * @param \Flame\Blog\SettingModule\Model\Settings\SettingManager $settingManager
 	 */
-	public function injectSettingManager(\Flame\Blog\Model\Settings\SettingManager $settingManager)
+	public function injectSettingManager(\Flame\Blog\SettingModule\Model\Settings\SettingManager $settingManager)
 	{
 		$this->settingManager = $settingManager;
 	}

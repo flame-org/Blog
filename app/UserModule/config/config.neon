@@ -1,19 +1,19 @@
 services:
-  user: \Flame\Blog\Security\User
+  user: \Flame\Blog\UserModule\Security\User
 
-  - \Flame\Blog\Security\Authenticator
-  - \Flame\Blog\Model\Users\UserManager
-  - \Flame\Blog\Entity\Users\UserFacade
+  - \Flame\Blog\UserModule\Security\Authenticator
+  - \Flame\Blog\UserModule\Model\Users\UserManager
+  - \Flame\Blog\UserModule\Entity\Users\UserFacade
 
   - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
 factories:
   userForm:
-    create: \Flame\Blog\Components\Users\Forms\UserForm(%default%)
-    implement: \Flame\Blog\Components\Users\Forms\IUserFormFactory
+    create: \Flame\Blog\UserModule\Components\Users\Forms\UserForm(%default%)
+    implement: \Flame\Blog\UserModule\Components\Users\Forms\IUserFormFactory
     parameters: [array default]
 
   userControl:
-    implement: \Flame\Blog\Components\Users\IUserControlFactory
+    implement: \Flame\Blog\UserModule\Components\Users\IUserControlFactory
 
   signInForm:
     implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory

@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Application\UI;
+namespace Flame\Blog\AppModule\Application\UI;
 
 class TemplateForm extends \Flame\Application\UI\TemplateForm
 {

@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Security;
+namespace Flame\Blog\UserModule\Security;
 
 class User extends \Nette\Security\User
 {
@@ -14,13 +14,13 @@ class User extends \Nette\Security\User
 	/** @var \Nette\DI\Container */
 	private $context;
 
-	/** @var \Flame\Blog\Entity\Users\UserFacade */
+	/** @var \Flame\Blog\UserModule\Entity\Users\UserFacade */
 	private $userFacade;
 
 	/**
-	 * @param \Flame\Blog\Entity\Users\UserFacade $userFacade
+	 * @param \Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade
 	 */
-	public function injectUserFacade(\Flame\Blog\Entity\Users\UserFacade $userFacade)
+	public function injectUserFacade(\Flame\Blog\UserModule\Entity\Users\UserFacade $userFacade)
 	{
 		$this->userFacade = $userFacade;
 	}
@@ -37,7 +37,7 @@ class User extends \Nette\Security\User
 	}
 
 	/**
-	 * @return \Flame\Blog\Entity\Users\User
+	 * @return \Flame\Blog\UserModule\Entity\Users\User
 	 */
 	public function getModel()
 	{

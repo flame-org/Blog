@@ -6,7 +6,7 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Users;
+namespace Flame\Blog\UserModule\Components\Users;
 
 interface IUserControlFactory
 {

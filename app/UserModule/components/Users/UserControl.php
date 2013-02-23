@@ -6,29 +6,29 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Users;
+namespace Flame\Blog\UserModule\Components\Users;
 
 class UserControl extends \Flame\Application\UI\Control
 {
 
-	/** @var \Flame\Blog\Security\User */
+	/** @var \Flame\Blog\UserModule\Security\User */
 	private $user;
 
-	/** @var \Flame\Blog\Components\Users\Forms\IUserFormFactory */
+	/** @var \Flame\Blog\UserModule\Components\Users\Forms\IUserFormFactory */
 	private $userFormFactory;
 
 	/**
-	 * @param \Flame\Blog\Components\Users\Forms\IUserFormFactory $userFormFactory
+	 * @param \Flame\Blog\UserModule\Components\Users\Forms\IUserFormFactory $userFormFactory
 	 */
-	public function injectUserFormFactory(\Flame\Blog\Components\Users\Forms\IUserFormFactory $userFormFactory)
+	public function injectUserFormFactory(\Flame\Blog\UserModule\Components\Users\Forms\IUserFormFactory $userFormFactory)
 	{
 		$this->userFormFactory = $userFormFactory;
 	}
 
 	/**
-	 * @param \Flame\Blog\Security\User $user
+	 * @param \Flame\Blog\UserModule\Security\User $user
 	 */
-	public function injectUser(\Flame\Blog\Security\User $user)
+	public function injectUser(\Flame\Blog\UserModule\Security\User $user)
 	{
 		$this->user = $user;
 	}
@@ -39,7 +39,7 @@ class UserControl extends \Flame\Application\UI\Control
 	protected function createComponentUserForm()
 	{
 		$defautl = array();
-		if($user = $this->user->getModel() and $user instanceof \Flame\Blog\Entity\Users\User)
+		if($user = $this->user->getModel() and $user instanceof \Flame\Blog\UserModule\Entity\Users\User)
 			$defautl = $user->toArray();
 
 		$form = $this->userFormFactory->create($defautl);

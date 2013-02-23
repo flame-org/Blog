@@ -36,7 +36,7 @@ nette:
     autoStart: smart
 
 services:
-  routerFactory: \Flame\Blog\Router\RouterFactory
+  routerFactory: \Flame\Blog\AppModule\Router\RouterFactory
   router: @routerFactory::createRouter
 
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register

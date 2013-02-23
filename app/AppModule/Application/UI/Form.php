@@ -6,7 +6,7 @@
  * @date    15.02.13
  */
 
-namespace Flame\Blog\Application\UI;
+namespace Flame\Blog\AppModule\Application\UI;
 
 class Form extends \Flame\Application\UI\Form
 {

@@ -6,7 +6,7 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Components\Settings\Forms;
+namespace Flame\Blog\SettingModule\Components\Settings\Forms;
 
 interface ISettingFormFactory
 {

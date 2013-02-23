@@ -6,7 +6,7 @@
  * @date    16.02.13
  */
 
-namespace Flame\Blog\Entity\Settings;
+namespace Flame\Blog\SettingModule\Entity\Settings;
 
 /**
  * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
