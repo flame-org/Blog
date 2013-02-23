@@ -45,6 +45,7 @@ class RssPresenter extends FrontPresenter
 
 		// úprava, lze také využít události $onPrepareItem
 		if(count($items)){
+			$mdParser = $this->createMarkdownParser();
 			foreach ($items as &$item) {
 				if($item instanceof \Flame\Blog\Entity\Posts\Post){
 					$item = $item->toArray();
@@ -52,7 +53,9 @@ class RssPresenter extends FrontPresenter
 						'id' => $item["id"],
 						'slug' => \Flame\Utils\Strings::webalize($item['title']))
 					);
-					unset($item["id"]);
+					$item['content'] = $mdParser->transform($item['content']);
+					$item['pubDate'] = $item['date'];
+					unset($item["id"], $item['date']);
 				}
 			}
 		}
@@ -66,6 +69,14 @@ class RssPresenter extends FrontPresenter
 	 */
 	protected function createComponentRssFeed() {
 		return $this->rssControlFactory->create();
+	}
+
+	/**
+	 * @return \Michelf\MarkdownExtra
+	 */
+	private function createMarkdownParser()
+	{
+		return new \Michelf\MarkdownExtra;
 	}
 
 
