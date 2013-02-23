@@ -11,7 +11,7 @@ namespace Flame\Blog\Latte\Macros;
 class MarkdownMacros extends \Nette\Latte\Macros\MacroSet
 {
 
-	/** @var \dflydev\markdown\MarkdownParser */
+	/** @var \Michelf\MarkdownExtra */
 	private static $markdownParser;
 
 	/**
@@ -32,7 +32,7 @@ class MarkdownMacros extends \Nette\Latte\Macros\MacroSet
 	 */
 	public static function markdownParser(\Nette\Latte\MacroNode $node, \Nette\Latte\PhpWriter $writer)
 	{
-		$cmd = "echo \\Flame\\Blog\\Latte\\Macros\\MarkdownMacros::getMakrdownParser()->transformMarkdown(%node.word)";
+		$cmd = "echo \\Flame\\Blog\\Latte\\Macros\\MarkdownMacros::getMakrdownParser()->transform(%node.word)";
 		return $writer->write($cmd);
 	}
 
@@ -42,7 +42,7 @@ class MarkdownMacros extends \Nette\Latte\Macros\MacroSet
 	public static function getMakrdownParser()
 	{
 		if(static::$markdownParser === null){
-			static::$markdownParser = new \dflydev\markdown\MarkdownParser;
+			static::$markdownParser = new \Michelf\MarkdownExtra;
 		}
 
 		return static::$markdownParser;

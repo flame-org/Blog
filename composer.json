@@ -10,7 +10,7 @@
 		"doctrine/orm": "2.3.0",
 		"flame/framework": "@dev",
 		"kdyby/bootstrap-form-renderer": "@dev",
-		"dflydev/markdown": "1.0.2"
+		"michelf/php-markdown": "@dev"
 	},
 	
 	"require-dev": {
