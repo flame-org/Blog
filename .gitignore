@@ -3,4 +3,3 @@ deployment.*
 !deployment.ini
 config.*.neon
 www/media
-tests
