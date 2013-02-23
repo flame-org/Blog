@@ -1,14 +1,26 @@
 <?php
 
-if (@!include __DIR__ . '/../../libs/autoload.php') {
-	echo 'Install Nette Tester using `composer update --dev`';
+include __DIR__ . '/../../libs/autoload.php';
+
+if (!class_exists('Tester\Assert')) {
+	echo "Install Nette Tester using `composer update --dev`\n";
 	exit(1);
+}
+
+if (extension_loaded('xdebug')) {
+	xdebug_disable();
+	Tester\CodeCoverage\Collector::start(__DIR__ . '/coverage.dat');
+}
+
+function run(Tester\TestCase $testCase) {
+	$testCase->run(isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : NULL);
 }
 
 // configure environment
 Tester\Helpers::setup();
 date_default_timezone_set('Europe/Prague');
 
+define('APP_DIR', __DIR__ . '/../../app');
 // create temporary directory
 define('TEMP_DIR', __DIR__ . '/../temp/' . (isset($_SERVER['argv']) ? md5(serialize($_SERVER['argv'])) : getmypid()));
 Tester\Helpers::purge(TEMP_DIR);
@@ -22,11 +34,19 @@ Flame\Tools\Files\FileSystem::mkDir($logDir);
 \Nette\Diagnostics\Debugger::$logDirectory = $logDir;
 \Nette\Diagnostics\Debugger::$productionMode = false;
 
-if (extension_loaded('xdebug')) {
-	xdebug_disable();
-	Tester\CodeCoverage\Collector::start(__DIR__ . '/coverage.dat');
-}
+$configurator = new \Flame\Config\Configurator;
+$configurator->setDebugMode(FALSE);
+$configurator->addParameters(array(
+		'appDir' => APP_DIR,
+		'wwwDir' => realpath(APP_DIR . '/../www'),
+		'rootDir' => realpath(APP_DIR . '/..'))
+);
+$configurator->setTempDirectory(TEMP_DIR);
+$configurator->createRobotLoader()
+	->addDirectory(APP_DIR)
+	->register();
 
-function run(Tester\TestCase $testCase) {
-	$testCase->run(isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : NULL);
-}
+$configurator->addConfig(APP_DIR . '/AppModule/config/config.neon');
+$configurator->addConfig(APP_DIR . '/AppModule/config/config.dev.neon');
+return $configurator->createContainer();
+
