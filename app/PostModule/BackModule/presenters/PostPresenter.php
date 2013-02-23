@@ -44,4 +44,14 @@ class PostPresenter extends BackPresenter
 		$this->post = $this->postFacade->getOne($id);
 	}
 
+	/**
+	 * @param null $id
+	 */
+	public function actionDetail($id = null)
+	{
+		$this->post = $this->postFacade->getOne($id);
+		if($this->post)
+			$this->flashMessage('Temporary post preview');
+	}
+
 }

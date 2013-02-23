@@ -14,11 +14,7 @@
 		<tr n:foreach="$posts as $post">
 			<td>{$post->date|date:'%d.%m.%y'}</td>
 			<td>
-				{if $post->public}
-					<a href="{plink :Front:Post:detail $post->id}">{$post->title}</a>
-				{else}
-					{$post->title}
-				{/if}
+				<a href="{plink Post:detail $post->id}" title="Show preview">{$post->title}</a>
 			</td>
 			<td>{$post->views}</td>
 			<td>
