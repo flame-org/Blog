@@ -16,7 +16,7 @@
 	
 	"require-dev": {
 		"dg/ftp-deployment": "@dev",
-		"symfony/console": "2.1.*",
+		"symfony/console": "@dev",
 		"nette/tester": "@dev",
 		"janmarek/mockista": "@dev"
 	}
