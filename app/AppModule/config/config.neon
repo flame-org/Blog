@@ -42,6 +42,7 @@ services:
   SqlLogger: Flame\Doctrine\Diagnostics\ConnectionPanel::register
   MappingStrategy: \Doctrine\ORM\Mapping\UnderscoreNamingStrategy
   TablePrefix: Flame\Doctrine\TablePrefix(%database.prefix%)
+  DoctrineCache: \Flame\Doctrine\Cache
 
   EventManager:
     class: Doctrine\Common\EventManager
@@ -55,6 +56,9 @@ services:
       - setSQLLogger(@SqlLogger)
       - setProxyDir(%rootDir%/temp/proxy)
       - setNamingStrategy(@MappingStrategy)
+      - setMetadataCacheImpl(@DoctrineCache)
+      - setQueryCacheImpl(@DoctrineCache)
+      - setResultCacheImpl(@DoctrineCache)
 
   EntityManager:
     class: Doctrine\ORM\EntityManager
