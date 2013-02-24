@@ -45,7 +45,7 @@ If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/]
 
 5. Import default database data
 
-	`php app/doctrine-cli.php dbal:import data/db.sql`
+	`php app/doctrine-cli.php dbal:import data/default.sql`
 
 6. Make dirs log and temp writable
 
