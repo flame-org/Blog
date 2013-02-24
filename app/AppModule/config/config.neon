@@ -17,7 +17,7 @@ parameters:
     user:
     password:
 
-  entities: [%appDir%/Entity]
+  entities: []
 
 php:
   date.timezone: Europe/Prague

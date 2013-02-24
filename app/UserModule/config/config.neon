@@ -1,3 +1,6 @@
+parameters:
+  entities: [%appDir%/UserModule/Entity]
+
 services:
   user: \Flame\Blog\UserModule\Security\User
 

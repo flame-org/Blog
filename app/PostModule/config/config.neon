@@ -1,3 +1,6 @@
+parameters:
+  entities: [%appDir%/PostModule/Entity]
+
 services:
   - \Flame\Blog\PostModule\Entity\Posts\PostFacade
 

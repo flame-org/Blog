@@ -1,3 +1,6 @@
+parameters:
+  entities: [%appDir%/SettingModule/Entity]
+
 services:
     - \Flame\Blog\SettingModule\Model\Settings\SettingManager
     - \Flame\Blog\SettingModule\Entity\Settings\SettingFacade
