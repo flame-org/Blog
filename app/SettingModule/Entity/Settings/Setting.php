@@ -9,7 +9,7 @@
 namespace Flame\Blog\SettingModule\Entity\Settings;
 
 /**
- * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
+ * @Entity
  */
 class Setting extends \Flame\Doctrine\Entity
 {

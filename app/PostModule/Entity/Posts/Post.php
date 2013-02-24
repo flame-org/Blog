@@ -11,7 +11,7 @@ namespace Flame\Blog\PostModule\Entity\Posts;
 use DateTime;
 
 /**
- * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
+ * @Entity
  */
 class Post extends \Flame\Doctrine\Entity
 {

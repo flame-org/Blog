@@ -13,7 +13,7 @@ namespace Flame\Blog\UserModule\Entity\Users;
 use Flame\Types\Password;
 
 /**
- * @Entity(repositoryClass="\Flame\Doctrine\Model\Repository")
+ * @Entity
  */
 class User extends \Flame\Doctrine\Entity
 {
