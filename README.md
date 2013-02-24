@@ -26,19 +26,32 @@ If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/]
 
 	`cd Blog && composer install --dev`
 
-3. Create database schema
+3. Setup database config
+ * Create app/AppModule/config/config.dev.neon
+ * Copy content with your configurations, e.g:
+
+ ```
+ 	parameters:
+    	database:
+    		host: localhost
+    		dbname: bl
+    		user: root
+    		password: root
+ ```
+
+4. Create database schema
 
 	`php app/doctrine-cli.php orm:schema-tool:update --force`
 
-4. Import default database data
+5. Import default database data
 
 	`php app/doctrine-cli.php dbal:import data/db.sql`
 
-5. Make dirs log and temp writable
+6. Make dirs log and temp writable
 
 	`chmod -R 777 log/ && chmod -R 777 temp/`
 
-6. Run blog
+7. Run blog
 
 	`e.g.: blog.lc`
 
