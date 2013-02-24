@@ -1,4 +1,4 @@
-Copyright (c) 2013, Jiří Šifalda ([](http://jsifalda.name/))
+Copyright (c) 2013, Jiří Šifalda ([http://jsifalda.name/](http://jsifalda.name/))
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
