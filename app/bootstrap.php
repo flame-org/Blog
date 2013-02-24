@@ -11,11 +11,7 @@ $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
 $configurator->setTempDirectory(__DIR__ . '/../temp');
-$configurator->addParameters(array(
-	'appDir' => __DIR__, 
-	'wwwDir' => realpath(__DIR__ . '/../www'), 
-	'rootDir' => realpath(__DIR__ . '/..'))
-);
+$configurator->addParameters(array('appDir' => __DIR__));
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__)
 	->register();
