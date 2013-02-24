@@ -24,7 +24,7 @@ If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/]
 
 2. Install dependencies (change directory to blog)
 
-	`cd Blog && composer update`
+	`cd Blog && composer install --dev`
 
 3. Create database schema
 
