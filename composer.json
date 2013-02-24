@@ -1,4 +1,5 @@
 {
+	"minimum-stability": "dev",
 
 	"config": {
 		"vendor-dir": "libs"
