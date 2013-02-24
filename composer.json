@@ -1,4 +1,7 @@
 {
+
+	"license": ["BSD-2-Clause", "FreeBSD"],
+
 	"minimum-stability": "dev",
 
 	"config": {
