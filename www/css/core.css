@@ -35,13 +35,6 @@ div, p {
     white-space: normal;
 }
 
-.jumbotron {
-    margin: 60px 0;
-}
-.jumbotron h2 {
-    letter-spacing: -1px;
-}
-
 input, textarea {
     width: auto;
 }
