@@ -4,7 +4,8 @@
 require __DIR__ . '/../libs/autoload.php';
 
 $configurator = new Flame\Config\Configurator;
-
+$configurator->registerDoctrineExtension();
+$configurator->registerModulesExtension();
 // Enable Nette Debugger for error visualisation & logging
 // $configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
