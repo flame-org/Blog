@@ -1,0 +1,34 @@
+parameters:
+  entities: [%appDir%/PostModule/Entity]
+
+services:
+  - \Flame\Blog\PostBundle\Entity\Posts\PostFacade
+
+  - \Flame\Blog\PostBundle\Model\Posts\PostManager
+
+  - \Flame\Addons\WordPress\PostsImporter
+  - \Flame\Blog\PostBundle\Components\Imports\WordPress\Forms\WpImportFormProcess(%wwwDir%)
+
+
+factories:
+  postControl:
+    create: \Flame\Blog\PostBundle\Components\Posts\PostControl(%post%)
+    implement: \Flame\Blog\PostBundle\Components\Posts\IPostControlFactory
+    parameters: [\Flame\Blog\PostBundle\Entity\Posts\Post post = null]
+
+  postForm:
+    create: \Flame\Blog\PostBundle\Components\Posts\Forms\PostForm(%defaults%)
+    implement: \Flame\Blog\PostBundle\Components\Posts\Forms\IPostFormFactory
+    parameters: [array defaults = []]
+
+  paginator:
+    implement: \Flame\Addons\VisualPaginator\IPaginatorFactory
+
+  rssControl:
+    implement: \Flame\Addons\RssFeed\IRssControlFactory
+
+  wpImportForm:
+    implement: \Flame\Blog\PostBundle\Components\Imports\WordPress\Forms\IWpImportFormFactory
+
+  wpImportControl:
+    implement: \Flame\Blog\PostBundle\Components\Imports\WordPress\IWpImportControlFactory

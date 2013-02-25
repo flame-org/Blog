@@ -1,0 +1,17 @@
+parameters:
+  entities: [%appDir%/SettingModule/Entity]
+
+services:
+    - \Flame\Blog\SettingBundle\Model\Settings\SettingManager
+    - \Flame\Blog\SettingBundle\Entity\Settings\SettingFacade
+
+    SettingHelper: \Flame\Blog\SettingBundle\Templating\Helpers\SettingHelper
+
+factories:
+  settingControl:
+    implement: \Flame\Blog\SettingBundle\Components\Settings\ISettingControlFactory
+
+  settingForm:
+    create: \Flame\Blog\SettingBundle\Components\Settings\Forms\SettingForm(%availableSettings%, %default%)
+    implement: \Flame\Blog\SettingBundle\Components\Settings\Forms\ISettingFormFactory
+    parameters: [array availableSettings, array default = []]

@@ -27,7 +27,7 @@ If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/]
 	`cd Blog && composer install --dev`
 
 3. Setup database config
- * Create app/AppModule/config/config.dev.neon
+ * Create app/AppBundle/config/config.dev.neon
  * Copy content with your configurations, e.g:
 
  ```

@@ -1,0 +1,22 @@
+parameters:
+  entities: [%appDir%/UserModule/Entity]
+
+services:
+  user: \Flame\Blog\UserBundle\Security\User
+
+  - \Flame\Blog\UserBundle\Security\Authenticator
+  - \Flame\Blog\UserBundle\Model\Users\UserManager
+  - \Flame\Blog\UserBundle\Entity\Users\UserFacade
+
+  - \Flame\Blog\FrontModule\Forms\Sign\SignInFormProcess
+factories:
+  userForm:
+    create: \Flame\Blog\UserBundle\Components\Users\Forms\UserForm(%default%)
+    implement: \Flame\Blog\UserBundle\Components\Users\Forms\IUserFormFactory
+    parameters: [array default]
+
+  userControl:
+    implement: \Flame\Blog\UserBundle\Components\Users\IUserControlFactory
+
+  signInForm:
+    implement: \Flame\Blog\FrontModule\Forms\Sign\ISignInFormFactory

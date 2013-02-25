@@ -5,7 +5,7 @@ require __DIR__ . '/../libs/autoload.php';
 
 $configurator = new Flame\Config\Configurator;
 $configurator->registerDoctrineExtension();
-$configurator->registerModulesExtension();
+$configurator->registerBundlesExtension();
 // Enable Nette Debugger for error visualisation & logging
 // $configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
@@ -18,8 +18,8 @@ $configurator->createRobotLoader()
 	->register();
 
 // Create Dependency Injection container from config.neon file
-$configurator->addConfig(__DIR__ . '/AppModule/config/config.neon');
-if(file_exists($configDev = __DIR__ . '/AppModule/config/config.dev.neon'))
+$configurator->addConfig(__DIR__ . '/AppBundle/config/config.neon');
+if(file_exists($configDev = __DIR__ . '/AppBundle/config/config.dev.neon'))
 	$configurator->addConfig($configDev);
 $container = $configurator->createContainer();
 

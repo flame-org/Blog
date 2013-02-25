@@ -46,7 +46,7 @@ $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
 	->register();
 
-$configurator->addConfig(APP_DIR . '/AppModule/config/config.neon');
-$configurator->addConfig(APP_DIR . '/AppModule/config/config.dev.neon');
+$configurator->addConfig(APP_DIR . '/AppBundle/config/config.neon');
+$configurator->addConfig(APP_DIR . '/AppBundle/config/config.dev.neon');
 return $configurator->createContainer();
 
