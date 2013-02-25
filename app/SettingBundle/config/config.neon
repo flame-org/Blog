@@ -1,3 +1,8 @@
+nette:
+  template:
+    helpers:
+      setting: @SettingHelper::setting
+
 parameters:
   entities: [%appDir%/SettingModule/Entity]
 

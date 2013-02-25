@@ -4,7 +4,7 @@
 require __DIR__ . '/../libs/autoload.php';
 
 $configurator = new Flame\Config\Configurator;
-$configurator->registerDoctrineExtension();
+
 $configurator->registerBundlesExtension();
 // Enable Nette Debugger for error visualisation & logging
 // $configurator->setDebugMode(TRUE);
@@ -21,6 +21,9 @@ $configurator->createRobotLoader()
 $configurator->addConfig(__DIR__ . '/AppBundle/config/config.neon');
 if(file_exists($configDev = __DIR__ . '/AppBundle/config/config.dev.neon'))
 	$configurator->addConfig($configDev);
+$configurator->addConfig(__DIR__ . '/UserBundle/config/config.neon');
+$configurator->addConfig(__DIR__ . '/SettingBundle/config/config.neon');
+$configurator->addConfig(__DIR__ . '/PostBundle/config/config.neon');
 $container = $configurator->createContainer();
 
 return $container;

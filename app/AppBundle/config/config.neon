@@ -35,15 +35,6 @@ nette:
     expiration: 14 days
     autoStart: smart
 
-bundles:
-  userBundle: [%appDir%/UserBundle/config/config.neon]
-  settingBundle: \Flame\Blog\SettingBundle\SettingBundle([%appDir%/SettingBundle/config/config.neon])
-  postBundle: \Flame\Blog\PostBundle\PostBundle([%appDir%/PostBundle/config/config.neon])
-
-doctrine:
-  connection: %database%
-  entityDirs: %entities%
-
 services:
   routerFactory: \Flame\Blog\AppBundle\Router\RouterFactory
   router: @routerFactory::createRouter

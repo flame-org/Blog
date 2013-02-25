@@ -1,7 +1,13 @@
+nette:
+  latte:
+    macros:
+      - \Flame\Blog\PostBundle\Latte\Macros\MarkdownMacros
+
 parameters:
   entities: [%appDir%/PostModule/Entity]
 
 services:
+  - \Ndab\Settings
   - \Flame\Blog\PostBundle\Entity\Posts\PostFacade
 
   - \Flame\Blog\PostBundle\Model\Posts\PostManager
