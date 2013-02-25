@@ -8,7 +8,7 @@
 
 namespace Flame\Blog\SettingBundle;
 
-class SettingModule extends \Flame\Bundles\BundleExtension
+class SettingBundle extends \Flame\Bundles\BundleExtension
 {
 
 	public function loadConfiguration()

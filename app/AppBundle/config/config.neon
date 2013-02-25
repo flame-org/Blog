@@ -37,8 +37,8 @@ nette:
 
 bundles:
   userBundle: [%appDir%/UserBundle/config/config.neon]
-  settingBundle: \Flame\Blog\SettingBundle\SettingModule([%appDir%/SettingBundle/config/config.neon])
-  postBundle: \Flame\Blog\PostBundle\PostModule([%appDir%/PostBundle/config/config.neon])
+  settingBundle: \Flame\Blog\SettingBundle\SettingBundle([%appDir%/SettingBundle/config/config.neon])
+  postBundle: \Flame\Blog\PostBundle\PostBundle([%appDir%/PostBundle/config/config.neon])
 
 doctrine:
   connection: %database%

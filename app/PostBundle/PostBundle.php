@@ -8,7 +8,7 @@
 
 namespace Flame\Blog\PostBundle;
 
-class PostModule extends \Flame\Bundles\BundleExtension
+class PostBundle extends \Flame\Bundles\BundleExtension
 {
 
 	public function loadConfiguration()
