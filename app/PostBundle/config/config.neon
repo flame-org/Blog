@@ -7,7 +7,6 @@ parameters:
   entities: [%appDir%/PostModule/Entity]
 
 services:
-  - \Ndab\Settings
   - \Flame\Blog\PostBundle\Entity\Posts\PostFacade
 
   - \Flame\Blog\PostBundle\Model\Posts\PostManager
