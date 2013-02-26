@@ -35,6 +35,8 @@ Flame\Tools\Files\FileSystem::mkDir($logDir);
 \Nette\Diagnostics\Debugger::$productionMode = false;
 
 $configurator = new \Flame\Config\Configurator;
+$configurator->registerExtension('doctrine', '\Flame\Doctrine\Config\Extension');
+$configurator->registerExtension('bundles', '\Flame\Bundles\Config\Extension');
 $configurator->setDebugMode(FALSE);
 $configurator->addParameters(array(
 		'appDir' => APP_DIR,

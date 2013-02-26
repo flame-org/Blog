@@ -23,6 +23,10 @@ php:
   date.timezone: Europe/Prague
   # zlib.output_compression: yes
 
+doctrine:
+  connection: %database%
+  proxyDirs: %entities%
+
 nette:
   container:
     debugger: false

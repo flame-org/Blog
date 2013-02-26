@@ -13,6 +13,7 @@
 		"nette/nette": "@dev",
 		"doctrine/orm": "2.3.0",
 		"flame/framework": "@dev",
+		"flame/doctrine": "@dev",
 		"kdyby/bootstrap-form-renderer": "@dev",
 		"michelf/php-markdown": "@dev"
 	},
