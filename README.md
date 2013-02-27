@@ -6,6 +6,7 @@ Fast and simple blog for everyone (especially for programmers :-))
 
 ## Screens
 ![Admin screen](http://projects.jsifalda.name/blog/screens/admin.png)
+
 **From admin module**
 
 If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/](http://blog.jsifalda.name/) or [http://tales.jsifalda.name/](http://tales.jsifalda.name/)
