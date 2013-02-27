@@ -109,7 +109,7 @@ class PostControl extends \Flame\Application\UI\Control
 		$posts = $this->postFacade->getLast();
 
 		$paginator = $this['paginator']->getPaginator();
-		$paginator->itemsPerPage = $this->itemsPerPage;
+		$paginator->itemsPerPage = 25;
 		$paginator->itemCount = count($posts);
 
 		if(is_array($posts) and count($posts))
