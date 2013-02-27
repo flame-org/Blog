@@ -139,14 +139,33 @@ class PostControl extends \Flame\Application\UI\Control
 		if($this->user->isLoggedIn()){
 			if($post = $this->postFacade->getOne($id)){
 				$this->postFacade->delete($post);
-			}else{
-				$this->presenter->flashMessage('Post does not exist', 'error');
 			}
 		}else{
 			$this->presenter->flashMessage('Access denied');
 		}
 
-		$this->redirect('this');
+		if(!$this->presenter->isAjax()){
+			$this->redirect('this');
+		}
+	}
+
+	/**
+	 * @param null $id
+	 */
+	public function handleChangePublic($id = null)
+	{
+
+		if($this->user->isLoggedIn()){
+			if($post = $this->postFacade->getOne($id)){
+				$this->postFacade->changePublicState($post);
+			}
+		}else{
+			$this->presenter->flashMessage('Access denied');
+		}
+
+		if(!$this->presenter->isAjax()){
+			$this->redirect('this');
+		}
 	}
 
 	/**
