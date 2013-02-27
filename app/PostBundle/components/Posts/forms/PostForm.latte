@@ -75,7 +75,7 @@
 
     //Everytime it's updated, update the textarea
     editor.on('update', function (file) {
-        $textarea.val(file.content);
+        $textarea.val(editor.exportFile());
     });
 
     // Everything is all setup, so load!
