@@ -2,7 +2,7 @@
 
 Fast and simple blog for everyone (especially for programmers :-))
 
-**Based on [Flame](https://github.com/flame-org/Framework), Nette frameworks and [Doctrine 2](**
+**Based on [Flame](https://github.com/flame-org/Framework), Nette frameworks and [Doctrine 2](https://github.com/flame-org/Doctrine)**
 
 ## Screens
 ![Admin screen](http://projects.jsifalda.name/blog/screens/admin.png)
