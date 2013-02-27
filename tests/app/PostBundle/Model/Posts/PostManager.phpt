@@ -6,7 +6,7 @@
  * @author Jiří Šifalda <sifalda.jiri@gmail.com>
  * @package Flame\Blog\Tests\Model\Posts
  */
-namespace Flame\Blog\Tests\PostModule\Model\Posts;
+namespace Flame\Blog\Tests\PostBundle\Model\Posts;
 
 use Tester\Assert;
 
