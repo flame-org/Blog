@@ -36,7 +36,6 @@ Flame\Tools\Files\FileSystem::mkDir($logDir);
 
 $configurator = new \Flame\Config\Configurator;
 $configurator->registerExtension('doctrine', '\Flame\Doctrine\Config\Extension');
-$configurator->registerExtension('bundles', '\Flame\Bundles\Config\Extension');
 $configurator->setDebugMode(FALSE);
 $configurator->addParameters(array(
 		'appDir' => APP_DIR,

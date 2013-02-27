@@ -6,7 +6,6 @@ require __DIR__ . '/../libs/autoload.php';
 $configurator = new Flame\Config\Configurator;
 
 $configurator->registerExtension('doctrine', '\Flame\Doctrine\Config\Extension');
-$configurator->registerExtension('bundles', '\Flame\Bundles\Config\Extension');
 // Enable Nette Debugger for error visualisation & logging
 // $configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
