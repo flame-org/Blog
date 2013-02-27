@@ -4,6 +4,10 @@ Fast and simple blog for everyone (especially for programmers :-))
 
 **Based on [Flame](https://github.com/flame-org/Framework), Nette frameworks and Doctrine 2**
 
+## Screens
+
+![Admin screen](http://projects.jsifalda.name/blog/screens/admin.png)
+
 If you want to see Flame:Blog in live, please visit [http://blog.jsifalda.name/](http://blog.jsifalda.name/) or [http://tales.jsifalda.name/](http://tales.jsifalda.name/)
 
 ## Features
