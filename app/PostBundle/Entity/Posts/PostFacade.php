@@ -48,4 +48,14 @@ class PostFacade extends \Flame\Doctrine\Model\Facade
 	{
 		return $this->repository->findOneBy(array('id' => $id, 'public' => 1));
 	}
+
+	/**
+	 * @param Post $post
+	 * @return mixed
+	 */
+	public function changePublicState(Post $post)
+	{
+		$post->setPublic(!$post->getPublic());
+		return $this->save($post);
+	}
 }
