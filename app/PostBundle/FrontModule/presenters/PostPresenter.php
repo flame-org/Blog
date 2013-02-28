@@ -31,14 +31,6 @@ class PostPresenter extends FrontPresenter
 	protected $postFacade;
 
 	/**
-	 * @return \Flame\Blog\PostBundle\Components\Posts\PostControl
-	 */
-	protected function createComponentPost()
-	{
-		return $this->postControlFactory->create($this->post);
-	}
-
-	/**
 	 * @param null $id
 	 * @param null $slug
 	 */
@@ -53,6 +45,14 @@ class PostPresenter extends FrontPresenter
 	public function renderDetail()
 	{
 		if($this->post) $this->template->title = $this->post->getTitle();
+	}
+
+	/**
+	 * @return \Flame\Blog\PostBundle\Components\Posts\PostControl
+	 */
+	protected function createComponentPost()
+	{
+		return $this->postControlFactory->create($this->post);
 	}
 
 	private function protectPostDuplicity($slug, \Flame\Blog\PostBundle\Entity\Posts\Post $post)
