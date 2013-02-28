@@ -15,17 +15,15 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 	protected $repositoryName = '\Flame\Blog\SettingBundle\Entity\Settings\Setting';
 
 	/** @var array */
-	private $settings = array(
-		'projectName' => Setting::STRING,
-		'projectDesc' => Setting::STRING,
-		'seoKeywords' => Setting::STRING,
-		'seoDescription' => Setting::STRING,
-		'alllowComments' => Setting::BOOL,
-		'alllowSharing' => Setting::BOOL,
-		'disqusKey' => Setting::STRING,
-		'itemsPerPage' => Setting::STRING,
-		'maxRssItems' => Setting::STRING,
-	);
+	private $settings = array();
+
+	/**
+	 * @param array $availableSettings
+	 */
+	public function setAvailableSetting(array $availableSettings = array())
+	{
+		$this->settings = $this->prepareAvaiableSetting($availableSettings);
+	}
 
 	/**
 	 * @return array
@@ -37,11 +35,11 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 
 	/**
 	 * @param $name
-	 * @return null
+	 * @return bool|int|string
 	 */
 	public function getAvailableSettingByName($name)
 	{
-		return (isset($this->settings[$name])) ? $this->settings[$name] : null;
+		return \Flame\Utils\Arrays::recursiveSearch($name, $this->settings);
 	}
 
 	/**
@@ -70,5 +68,32 @@ class SettingFacade extends \Flame\Doctrine\Model\Facade
 		if($setting = $this->getOneByName($name)){
 			return $setting->getValue();
 		}
+	}
+
+	/**
+	 * @param $availableSettings
+	 * @return array
+	 */
+	private function prepareAvaiableSetting($availableSettings)
+	{
+		$settings = array();
+		if(count($availableSettings)){
+			foreach($availableSettings as $k => $v){
+				switch($k){
+					case 'text':
+						$type = Setting::TEXT;
+						break;
+					case 'bool':
+						$type = Setting::BOOL;
+						break;
+					default:
+						$type = Setting::STRING;
+						break;
+				}
+				$settings[$type] = $v;
+			}
+		}
+
+		return $settings;
 	}
 }

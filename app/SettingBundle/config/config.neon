@@ -5,10 +5,17 @@ nette:
 
 parameters:
   entities: [%appDir%/SettingModule/Entity]
+  settings: [
+    string: ['projectName', 'projectDesc', 'seoKeywords', 'seoDescription', 'disqusKey', 'itemsPerPage', 'maxRssItems'],
+    bool: ['alllowComments', 'alllowSharing']
+  ]
 
 services:
     - \Flame\Blog\SettingBundle\Model\Settings\SettingManager
-    - \Flame\Blog\SettingBundle\Entity\Settings\SettingFacade
+    settingFacade:
+      class: \Flame\Blog\SettingBundle\Entity\Settings\SettingFacade
+      setup:
+        - setAvailableSetting(%settings%)
 
     SettingHelper: \Flame\Blog\SettingBundle\Templating\Helpers\SettingHelper
 
