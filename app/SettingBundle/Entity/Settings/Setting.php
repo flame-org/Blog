@@ -11,7 +11,7 @@ namespace Flame\Blog\SettingBundle\Entity\Settings;
 /**
  * @Entity
  */
-class Setting extends \Flame\Doctrine\Entity
+class Setting extends \Flame\Doctrine\Entities\IdentifiedEntity
 {
 
 	const STRING = 1;

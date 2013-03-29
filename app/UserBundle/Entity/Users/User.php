@@ -15,7 +15,7 @@ use Flame\Types\Password;
 /**
  * @Entity
  */
-class User extends \Flame\Doctrine\Entity
+class User extends \Flame\Doctrine\Entities\IdentifiedEntity
 {
 
 	/**

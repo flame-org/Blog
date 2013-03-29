@@ -13,7 +13,7 @@ use DateTime;
 /**
  * @Entity
  */
-class Post extends \Flame\Doctrine\Entity
+class Post extends \Flame\Doctrine\Entities\IdentifiedEntity
 {
 
 	/**
