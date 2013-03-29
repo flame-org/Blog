@@ -46,6 +46,7 @@ class PostPresenter extends BackPresenter
 
 	/**
 	 * @param null $id
+	 * @User loggedIn
 	 */
 	public function actionDetail($id = null)
 	{
